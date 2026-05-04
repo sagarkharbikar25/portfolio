@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sagar Kharbikar — Backend Developer specializing in Java, System Design, APIs, and Databases.">
+    <meta name="author" content="Sagar Kharbikar">
+    <title>Sagar Kharbikar | Backend Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-bracket">{</span>SK<span class="logo-bracket">}</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        <span class="theme-icon" id="themeIcon">☀</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <p class="hero-greeting">Hello, I'm</p>
+                <h1 class="hero-name">Sagar Kharbikar</h1>
+                <h2 class="hero-role">Backend Developer</h2>
+                <p class="hero-tagline">I build the systems behind the screen — designing APIs, modeling databases, and engineering backend logic that scales reliably under real-world load.</p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+                <div class="hero-indicators">
+                    <div class="indicator">
+                        <span class="indicator-value">Java</span>
+                        <span class="indicator-label">Primary Language</span>
+                    </div>
+                    <div class="indicator-divider"></div>
+                    <div class="indicator">
+                        <span class="indicator-value">REST</span>
+                        <span class="indicator-label">API Architecture</span>
+                    </div>
+                    <div class="indicator-divider"></div>
+                    <div class="indicator">
+                        <span class="indicator-value">SQL</span>
+                        <span class="indicator-label">Data Layer</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-dot dot-red"></span>
+                        <span class="code-dot dot-yellow"></span>
+                        <span class="code-dot dot-green"></span>
+                        <span class="code-filename">Application.java</span>
+                    </div>
+                    <pre class="code-content"><code><span class="code-keyword">@RestController</span>
+<span class="code-keyword">@RequestMapping</span>(<span class="code-string">"/api/v1"</span>)
+<span class="code-keyword">public class</span> <span class="code-class">ApiController</span> {
+
+    <span class="code-keyword">@Autowired</span>
+    <span class="code-keyword">private</span> <span class="code-class">DocumentService</span> service;
+
+    <span class="code-keyword">@GetMapping</span>(<span class="code-string">"/documents/{id}"</span>)
+    <span class="code-keyword">public</span> <span class="code-class">ResponseEntity</span>&lt;<span class="code-class">Document</span>&gt;
+        <span class="code-method">getDocument</span>(
+            <span class="code-keyword">@PathVariable</span> <span class="code-class">Long</span> id) {
+        <span class="code-keyword">return</span> <span class="code-class">ResponseEntity</span>
+            .ok(service.findById(id));
+    }
+}</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">// about</span>
+                <h2 class="section-title">How I Think About Backend</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-content">
+                    <p class="about-text">
+                        I approach backend development as an engineering discipline — not just writing code that works, but building systems that handle failure gracefully, scale without rewriting, and remain maintainable six months later.
+                    </p>
+                    <p class="about-text">
+                        My work centers on <strong>Java and Spring Boot ecosystems</strong>, where I design RESTful APIs with proper status codes and error contracts, normalize databases to eliminate redundancy while indexing for read performance, and implement role-based access controls that map cleanly to business requirements.
+                    </p>
+                    <p class="about-text">
+                        I think in terms of data flow: how a request enters the system, gets validated, hits the service layer, interacts with the database, and returns a well-structured response. Every layer has a responsibility, and I keep them separated.
+                    </p>
+                    <div class="about-principles">
+                        <div class="principle">
+                            <span class="principle-icon">⚙</span>
+                            <div>
+                                <h4>API-First Design</h4>
+                                <p>Define contracts before writing implementation. Clear endpoints, proper HTTP methods, consistent response structures.</p>
+                            </div>
+                        </div>
+                        <div class="principle">
+                            <span class="principle-icon">🗃</span>
+                            <div>
+                                <h4>Data Integrity</h4>
+                                <p>Enforce constraints at the database level. Use transactions where consistency matters. Index strategically.</p>
+                            </div>
+                        </div>
+                        <div class="principle">
+                            <span class="principle-icon">🔒</span>
+                            <div>
+                                <h4>Security by Default</h4>
+                                <p>Authentication and authorization aren't afterthoughts. Role-based access, input validation, and secure session handling from day one.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">// projects</span>
+                <h2 class="section-title">What I've Built</h2>
+                <p class="section-subtitle">Each project focuses on backend architecture — API design, data modeling, authentication flows, and business logic.</p>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project 1: Digital Document Service Portal -->
+                <article class="project-card project-featured">
+                    <div class="project-card-header">
+                        <div class="project-label">
+                            <span class="project-badge featured-badge">Featured Project</span>
+                            <span class="project-number">01</span>
+                        </div>
+                        <h3 class="project-title">Digital Document Service Portal</h3>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-section">
+                            <h4 class="project-section-title">Problem</h4>
+                            <p class="project-description">
+                                Government and institutional offices handle document requests (certificates, verifications, permits) through manual, paper-based workflows. Requests get lost, status tracking is nonexistent for applicants, and there's no audit trail for administrative accountability. The system needed to digitize the entire lifecycle — from request submission to multi-level verification to final document issuance.
+                            </p>
+                        </div>
+                        <div class="project-section">
+                            <h4 class="project-section-title">Backend Architecture</h4>
+                            <ul class="project-logic-list">
+                                <li>
+                                    <span class="logic-marker"></span>
+                                    <span><strong>Role-Based Access Control (RBAC):</strong> Implemented four distinct roles — Applicant, Clerk, Verifier, Admin — each with scoped API access. Used Spring Security with method-level authorization (<code>@PreAuthorize</code>) to enforce permissions. Clerks can update request status but cannot approve; Verifiers can approve but cannot modify applicant data.</span>
+                                </li>
+                                <li>
+                                    <span class="logic-marker"></span>
+                                    <span><strong>State Machine for Document Lifecycle:</strong> Each document request transitions through defined states: SUBMITTED → UNDER_REVIEW → VERIFIED → APPROVED → ISSUED / REJECTED. Invalid transitions are rejected at the service layer, preventing data corruption from malformed API calls.</span>
+                                </li>
+                                <li>
+                                    <span class="logic-marker"></span>
+                                    <span><strong>Audit Logging:</strong> Every state change writes to an audit table with timestamp, actor ID, previous state, and new state. This provides a complete, queryable trail for compliance and dispute resolution.</span>
+                                </li>
+                                <li>
+                                    <span class="logic-marker"></span>
+                                    <span><strong>Database Design:</strong> Normalized schema across users, roles, document_requests, document_types, audit_logs, and verification_steps tables. Used foreign key constraints and indexed on (status, created_date) for the admin dashboard queries that filter by state and date range.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Java 17</span>
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">Spring Security</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">JPA / Hibernate</span>
+                            <span class="tech-tag">REST API</span>
+                            <span class="tech-tag">Maven</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/sagarkharbikar" class="project-link" target="_blank" rel="noopener noreferrer">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                View Source
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2: REST API Gateway -->
+                <article class="project-card">
+                    <div class="project-card-header">
+                        <div class="project-label">
+                            <span class="project-number">02</span>
+                        </div>
+                        <h3 class="project-title">Inventory Management REST API</h3>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-section">
+                            <h4 class="project-section-title">Problem</h4>
+                            <p class="project-description">
+                                Small warehouses track inventory in spreadsheets — no concurrent access handling, no validation, no history of stock changes. Needed a centralized API backend where multiple warehouse clients could manage products, track stock levels, and get alerts on low inventory with full CRUD operations and data validation.
+                            </p>
+                        </div>
+                        <div class="project-section">
+                            <h4 class="project-section-title">Backend Architecture</h4>
+                            <ul class="project-logic-list">
+                                <li>
+                                    <span class="logic-marker"></span>
+                                    <span><strong>RESTful CRUD with Validation:</strong> Built endpoints for products, categories, and stock movements. Used Bean Validation (<code>@Valid</code>, <code>@NotNull</code>, <code>@Min</code>) at the controller layer to reject malformed requests before they reach the service layer.</span>
+                                </li>
+                                <li>
+                                    <span class="logic-marker"></span>
+                                    <span><strong>Optimistic Locking:</strong> Used <code>@Version</code> annotation on the Product entity to prevent lost updates when two warehouse operators modify the same product concurrently. The second write fails with a conflict response instead of silently overwriting.</span>
+                                </li>
+                                <li>
+                                    <span class="logic-marker"></span>
+                                    <span><strong>Pagination & Filtering:</strong> Implemented cursor-based pagination for product listings and filtering by category, stock range, and last-updated date using Spring Data JPA Specifications for composable query predicates.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Java 17</span>
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">JPA</span>
+                            <span class="tech-tag">REST</span>
+                            <span class="tech-tag">JUnit 5</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/sagarkharbikar" class="project-link" target="_blank" rel="noopener noreferrer">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                View Source
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3: Auth Service -->
+                <article class="project-card">
+                    <div class="project-card-header">
+                        <div class="project-label">
+                            <span class="project-number">03</span>
+                        </div>
+                        <h3 class="project-title">JWT Authentication Microservice</h3>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-section">
+                            <h4 class="project-section-title">Problem</h4>
+                            <p class="project-description">
+                                Multiple internal applications each implemented their own authentication — inconsistent password policies, no token expiration, session data stored in memory. Built a standalone auth service that any internal application can integrate with via API, providing centralized user management and token-based authentication.
+                            </p>
+                        </div>
+                        <div class="project-section">
+                            <h4 class="project-section-title">Backend Architecture</h4>
+                            <ul class="project-logic-list">
+                                <li>
+                                    <span class="logic-marker"></span>
+                                    <span><strong>JWT with Refresh Token Rotation:</strong> Access tokens expire in 15 minutes. Refresh tokens are single-use — each refresh request invalidates the old token and issues a new pair. Stolen refresh tokens become detectable because reuse triggers automatic revocation of the entire token family.</span>
+                                </li>
+                                <li>
+                                    <span class="logic-marker"></span>
+                                    <span><strong>Password Security:</strong> Passwords hashed with BCrypt (cost factor 12). Enforced minimum complexity at the API level. Failed login attempts tracked per account with progressive lockout (5 failures = 15-minute lock).</span>
+                                </li>
+                                <li>
+                                    <span class="logic-marker"></span>
+                                    <span><strong>Stateless Session Design:</strong> No server-side session storage. All authorization data encoded in the JWT claims (user ID, roles, permissions). The service validates tokens using HMAC-SHA256 signatures without database lookups on every request.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Spring Security</span>
+                            <span class="tech-tag">JWT</span>
+                            <span class="tech-tag">BCrypt</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">REST</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/sagarkharbikar" class="project-link" target="_blank" rel="noopener noreferrer">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                View Source
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 4: URL Shortener -->
+                <article class="project-card">
+                    <div class="project-card-header">
+                        <div class="project-label">
+                            <span class="project-number">04</span>
+                        </div>
+                        <h3 class="project-title">URL Shortener with Analytics</h3>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-section">
+                            <h4 class="project-section-title">Problem</h4>
+                            <p class="project-description">
+                                Marketing teams share campaign links across channels but have no visibility into click-through rates per channel. Built a URL shortening service with per-link analytics — click counts, referrer tracking, geographic breakdown — exposed through a dashboard API.
+                            </p>
+                        </div>
+                        <div class="project-section">
+                            <h4 class="project-section-title">Backend Architecture</h4>
+                            <ul class="project-logic-list">
+                                <li>
+                                    <span class="logic-marker"></span>
+                                    <span><strong>Base62 Encoding for Short Codes:</strong> Auto-incremented database IDs encoded to Base62 strings (a-z, A-Z, 0-9) to generate short, collision-free URL slugs. A 6-character slug supports 56+ billion unique URLs.</span>
+                                </li>
+                                <li>
+                                    <span class="logic-marker"></span>
+                                    <span><strong>Async Click Tracking:</strong> Redirect responses return immediately (HTTP 302). Click metadata (timestamp, User-Agent, referrer, IP-derived geo) is written asynchronously to avoid adding latency to the redirect path.</span>
+                                </li>
+                                <li>
+                                    <span class="logic-marker"></span>
+                                    <span><strong>Aggregation Queries:</strong> Analytics API returns pre-aggregated data — clicks grouped by day, by referrer domain, and by country — using indexed SQL queries against the click_events table partitioned by month.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Redis</span>
+                            <span class="tech-tag">REST</span>
+                            <span class="tech-tag">Async Processing</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/sagarkharbikar" class="project-link" target="_blank" rel="noopener noreferrer">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                View Source
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">// skills</span>
+                <h2 class="section-title">Technical Toolkit</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <div class="skill-group-header">
+                        <span class="skill-group-icon">◆</span>
+                        <h3 class="skill-group-title">Backend</h3>
+                    </div>
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            <span class="skill-name">Java (Core + 17)</span>
+                            <span class="skill-detail">Primary language — OOP, Collections, Streams, Concurrency</span>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-name">Spring Boot</span>
+                            <span class="skill-detail">REST APIs, Dependency Injection, Auto-configuration</span>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-name">Spring Security</span>
+                            <span class="skill-detail">JWT, OAuth2, Role-Based Access Control</span>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-name">Hibernate / JPA</span>
+                            <span class="skill-detail">ORM mapping, lazy loading, query optimization</span>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-name">REST API Design</span>
+                            <span class="skill-detail">Resource modeling, status codes, versioning, error contracts</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-header">
+                        <span class="skill-group-icon">◆</span>
+                        <h3 class="skill-group-title">Database</h3>
+                    </div>
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            <span class="skill-name">MySQL</span>
+                            <span class="skill-detail">Schema design, indexing, joins, stored procedures</span>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-name">PostgreSQL</span>
+                            <span class="skill-detail">Advanced queries, partitioning, JSON columns</span>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-name">Redis</span>
+                            <span class="skill-detail">Caching layer, session storage, rate limiting</span>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-name">Database Design</span>
+                            <span class="skill-detail">Normalization, ER modeling, migration strategies</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-header">
+                        <span class="skill-group-icon">◆</span>
+                        <h3 class="skill-group-title">Tools & Practices</h3>
+                    </div>
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            <span class="skill-name">Git</span>
+                            <span class="skill-detail">Branching strategies, rebasing, collaborative workflows</span>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-name">Maven</span>
+                            <span class="skill-detail">Dependency management, build lifecycle, profiles</span>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-name">Postman</span>
+                            <span class="skill-detail">API testing, collection runners, environment configs</span>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-name">JUnit 5 / Mockito</span>
+                            <span class="skill-detail">Unit testing, mocking dependencies, test coverage</span>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-name">Docker</span>
+                            <span class="skill-detail">Containerization, docker-compose for local dev environments</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="section-header">
+                    <span class="section-tag">// contact</span>
+                    <h2 class="section-title">Let's Connect</h2>
+                </div>
+                <p class="contact-text">
+                    I'm open to backend developer roles, freelance API projects, and technical discussions about system design. If you're building something that needs solid backend architecture, let's talk.
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:sagar.kharbikar@email.com" class="contact-link-card">
+                        <div class="contact-link-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        </div>
+                        <div class="contact-link-info">
+                            <span class="contact-link-label">Email</span>
+                            <span class="contact-link-value">sagar.kharbikar@email.com</span>
+                        </div>
+                    </a>
+                    <a href="https://github.com/sagarkharbikar" class="contact-link-card" target="_blank" rel="noopener noreferrer">
+                        <div class="contact-link-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        </div>
+                        <div class="contact-link-info">
+                            <span class="contact-link-label">GitHub</span>
+                            <span class="contact-link-value">github.com/sagarkharbikar</span>
+                        </div>
+                    </a>
+                    <a href="https://linkedin.com/in/sagarkharbikar" class="contact-link-card" target="_blank" rel="noopener noreferrer">
+                        <div class="contact-link-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        </div>
+                        <div class="contact-link-info">
+                            <span class="contact-link-label">LinkedIn</span>
+                            <span class="contact-link-value">linkedin.com/in/sagarkharbikar</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p class="footer-text">Designed & built by Sagar Kharbikar</p>
+            <p class="footer-subtext">Built with HTML, CSS, and JavaScript — no frameworks.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
