@@ -1,0 +1,65 @@
+/* ==========================================================================
+   Obsidian-Gold-Cyan Design Tokens
+   Calibrated for WCAG AA (>= 4.5:1 text, >= 3:1 UI boundaries)
+   DEC-003: Dark-Only Obsidian Palette
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* Obsidian Void Canvases */
+  --bg-void: #0a0a0c;
+  --bg-elevated: #111420;
+  --bg-glass: rgba(10, 15, 30, 0.78);
+  --bg-code: #070a12;
+
+  /* Backwards-compatible aliases for legacy classes */
+  --bg-pitch: var(--bg-void);
+  --bg-surface: var(--bg-void);
+  --bg-surface-elevated: var(--bg-elevated);
+  --bg-card: rgba(17, 20, 32, 0.75);
+  --bg-card-hover: rgba(22, 28, 45, 0.9);
+
+  /* Calibrated High-Contrast Typography Tokens (WCAG AA / AAA) */
+  --text-pure: #ffffff;         /* 19.78:1 on void (AAA) */
+  --text-primary: #dce5f2;      /* 15.57:1 on void (AAA) */
+  --text-bright: var(--text-primary);
+  --text-muted: #9fb0c8;        /* 8.97:1 on void (AAA) */
+  --text-dim: #8899b4;          /* 6.84:1 on void (AA+, replaces failing #64748b) */
+  --text-on-gold: #0a0a0c;      /* 14.10:1 on gold (AAA) */
+
+  /* Cyber-Arcane Accents */
+  --gold-primary: #ffd700;      /* 14.10:1 on void (AAA) */
+  --gold-warm: #ffaa00;         /* 10.36:1 on void (AAA) */
+  --cyan-electric: #6fc4f2;     /* 10.22:1 on void (AAA) */
+  --cyan-soft: #63b3ed;         /* 8.67:1 on void (AAA) */
+  --emerald-live: #34d399;      /* 10.29:1 on void (AAA) */
+  --rose-keyword: #fb7185;      /* 7.35:1 on void (AA+) */
+
+  /* Legacy Accent Aliases */
+  --emerald-neon: var(--emerald-live);
+  --amber-warm: var(--gold-warm);
+  --violet-iridescent: #c084fc;
+  --rose-accent: var(--rose-keyword);
+
+  /* Hairlines and High-Contrast Borders */
+  --border-hud: rgba(111, 196, 242, 0.50);     /* >= 3:1 non-text contrast */
+  --border-gold: rgba(255, 215, 0, 0.45);      /* >= 3:1 non-text contrast */
+  --border-subtle: rgba(220, 229, 242, 0.14);
+  --border-hover: rgba(111, 196, 242, 0.40);
+  --border-active: rgba(111, 196, 242, 0.70);
+  --specular-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  --specular-glow: 0 20px 50px -10px rgba(0, 0, 0, 0.9);
+
+  /* Typography Font Families (DEC-005) */
+  --font-display: 'Cinzel', Georgia, serif;
+  --font-body: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-code: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  --font-serif: var(--font-display);
+
+  /* Layout Constants */
+  --hud-height: 64px;
+  --nav-height: var(--hud-height);
+  --container-max: 1200px;
+  --max-width: var(--container-max);
+}
