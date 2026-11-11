@@ -1,35 +1,86 @@
-/**
- * Technical Competencies & Skill Clusters
- * 4 distinct defensible skill clusters with proven production application.
- */
-
-export const SKILLS_DATA = [
+export const SKILL_TIERS = [
   {
-    id: "backend-core",
-    category: "Backend & Core Systems",
-    badge: "Core Engineering",
-    skills: ["Python", "Node.js", "Express", "Java", "C++", "RESTful APIs", "System Design"],
-    description: "High-throughput API services, deterministic state machines, and concurrency controls."
+    id: 'daily-drivers',
+    title: 'Daily Drivers',
+    badge: 'Production Tested',
+    badgeTone: 'gold',
+    rows: [
+      {
+        label: 'Backend Core',
+        items: 'Node.js, Express.js, Python, FastAPI, REST API Design, JWT & RBAC',
+      },
+      {
+        label: 'Frontend Modules',
+        items: 'React, TypeScript, Next.js',
+      },
+      {
+        label: 'Primary Databases',
+        items: 'PostgreSQL, MongoDB',
+      },
+      {
+        label: 'Workflow Tools',
+        items: 'Git, GitHub, Postman, Vercel, Render',
+      },
+    ],
   },
   {
-    id: "ai-systems",
-    category: "AI & Intelligent Systems",
-    badge: "Edge & Neural Ops",
-    skills: ["LangChain", "Hugging Face", "Transformers", "PyTorch", "Ollama", "Vector Databases"],
-    description: "On-device speech transcription, local LLM orchestration, and semantic retrieval pipelines."
+    id: 'comfortable',
+    title: 'Comfortable',
+    badge: 'Shipped Projects & Mobile',
+    badgeTone: 'cyan',
+    rows: [
+      {
+        label: 'Languages',
+        items: 'JavaScript, Java, PHP, C',
+      },
+      {
+        label: 'Additional Databases',
+        items: 'MySQL, Firebase, SQLite',
+      },
+      {
+        label: 'Mobile Frameworks',
+        items: 'React Native (from 4iBiz production migration)',
+      },
+      {
+        label: 'Architecture & CI',
+        items: 'MVC Architecture, GitHub Actions CI/CD',
+      },
+    ],
   },
   {
-    id: "databases-storage",
-    category: "Databases & Storage",
-    badge: "Data Integrity",
-    skills: ["PostgreSQL", "MongoDB", "Redis", "MySQL", "Data Modeling", "Indexing"],
-    description: "Relational modeling, document stores, in-memory caching layers, and transaction isolation."
+    id: 'learning',
+    title: 'Learning',
+    badge: 'Active Deep-Dive',
+    badgeTone: 'muted',
+    rows: [
+      {
+        label: 'Infrastructure & Containers',
+        items: 'Docker containerization & multi-stage builds',
+      },
+      {
+        label: 'In-Memory Caching',
+        items: 'Redis (caching layers & token bucket rate limiting)',
+      },
+      {
+        label: 'System Architecture',
+        items: 'Distributed system design & cloud scaling',
+      },
+    ],
   },
   {
-    id: "devops-cloud",
-    category: "DevOps & Cloud",
-    badge: "Reliability & Deployments",
-    skills: ["Docker", "Git", "CI/CD Actions", "Linux", "Nginx", "AWS Basics"],
-    description: "Containerization, automated build/deployment pipelines, and Linux server administration."
-  }
+    id: 'core-cs',
+    title: 'Core CS Foundations',
+    badge: 'Academic Rigor (CGPA 8.70)',
+    badgeTone: 'amber',
+    rows: [
+      {
+        label: 'Data Structures',
+        items: 'Trees, Graphs, Hash Maps, Heaps, Algorithmic Complexity',
+      },
+      {
+        label: 'Systems & Database',
+        items: 'Database Management Systems (DBMS), Operating Systems, OOP',
+      },
+    ],
+  },
 ];

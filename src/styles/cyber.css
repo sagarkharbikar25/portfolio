@@ -1,0 +1,279 @@
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/space-grotesk-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/jetbrains-mono-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 600 700;
+  font-display: swap;
+  src: url('/fonts/cinzel-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --void: #08080c;
+  --surface: #0f101a;
+  --surface-2: #13131a;
+  --glass: rgba(10, 15, 30, 0.6);
+  --glass-strong: rgba(15, 25, 45, 0.85);
+  --hairline: rgba(150, 200, 255, 0.15);
+  --hairline-hot: rgba(150, 200, 255, 0.3);
+  --cyan: #00f0ff;
+  --ice: #6fc4f2;
+  --gold: #ffd700;
+  --gold-2: #ffaa00;
+  --violet: #9d4edd;
+  --emerald: #34d399;
+  --text: #e6f4f5;
+  --text-2: #b9cacb;
+  --text-3: #849495;
+  /* Legacy aliases retained for active utilities during phased rollout */
+  --void-bg: var(--void);
+  --cyan-neon: var(--cyan);
+  --purple-neon: var(--violet);
+  --gold-accent: var(--gold);
+  --glass-bg: var(--glass);
+}
+
+html {
+  background-color: var(--void);
+  color: var(--text);
+  overflow-x: clip;
+  scroll-padding-top: 84px;
+}
+
+body {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  background-color: var(--void);
+  color: var(--text);
+  overflow-x: clip;
+  min-height: 100vh;
+}
+
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
+/* Deep Space 48px Orthogonal Cyber-Grid Backdrop */
+.cosmic-void-grid {
+  background-image:
+    linear-gradient(to right, rgba(0, 240, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 240, 255, 0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Stitch Trapezoidal Cyber HUD Bevel */
+.hud-trapezoid {
+  clip-path: polygon(0 0, 100% 0, calc(100% - 20px) 100%, 20px 100%);
+}
+
+/* Chamfered Cyber Corners */
+.cyber-chamfer {
+  clip-path: polygon(
+    12px 0,
+    100% 0,
+    100% calc(100% - 12px),
+    calc(100% - 12px) 100%,
+    0 100%,
+    0 12px
+  );
+}
+
+/* Scanline Texture Overlay (subtle, pointer-transparent) */
+.cyber-scanlines {
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0px,
+    rgba(255, 255, 255, 0) 2px,
+    rgba(0, 240, 255, 0.015) 3px,
+    rgba(0, 240, 255, 0.015) 4px
+  );
+}
+
+/* Preloader Fullscreen Curtain Layer */
+.preloader-curtain {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  will-change: clip-path, opacity;
+}
+
+/* Bento Card Dynamic Cursor Radial-Gradient Border Light */
+.bento-spotlight-card {
+  --bx: 50%;
+  --by: 50%;
+  --b-opacity: 0;
+  --spotlight-rgb: 0, 240, 255;
+  position: relative;
+  background: linear-gradient(
+    155deg,
+    rgba(26, 26, 46, 0.68) 0%,
+    rgba(13, 14, 24, 0.88) 100%
+  );
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(132, 148, 149, 0.24);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.bento-spotlight-card[data-accent='purple'] {
+  --spotlight-rgb: 157, 78, 221;
+}
+
+.bento-spotlight-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    380px circle at var(--bx) var(--by),
+    rgba(var(--spotlight-rgb), 0.85),
+    rgba(157, 78, 221, 0.28) 42%,
+    transparent 70%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: var(--b-opacity);
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.bento-spotlight-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    420px circle at var(--bx) var(--by),
+    rgba(var(--spotlight-rgb), 0.11),
+    transparent 65%
+  );
+  opacity: var(--b-opacity);
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bento-spotlight-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Status Beacon Animation */
+@keyframes beaconPulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1.15);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.85);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.88);
+    box-shadow: 0 0 4px rgba(0, 240, 255, 0.25);
+  }
+}
+
+.status-beacon-cyan {
+  animation: beaconPulse 2.2s ease-in-out infinite;
+}
+
+.floating-pause-hover:hover .status-beacon-cyan,
+.floating-pause-hover:focus-visible .status-beacon-cyan,
+.floating-pause-hover:hover,
+.floating-pause-hover:focus-visible {
+  animation-play-state: paused;
+}
+
+/* Techfest-inspired spring vertical divider on HUD nav links */
+.nav-divider {
+  width: 2px;
+  height: 26px;
+  background: linear-gradient(180deg, transparent, var(--cyan), transparent);
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.nav-item-group:hover .nav-divider,
+.nav-item-group:focus-visible .nav-divider,
+.nav-item-group[data-active='true'] .nav-divider {
+  transform: scaleY(1);
+}
+
+.social-rail-icon {
+  transition: transform 250ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.group:hover .social-rail-icon,
+.group:focus-visible .social-rail-icon {
+  transform: rotate(12deg) scale(1.15);
+}
+
+/* Hero Char Split Animation Safety */
+.hero-split-char {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* Lenis Recommended Base Rules */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  .status-beacon-cyan {
+    animation: none;
+    opacity: 0.9;
+  }
+  .bento-spotlight-card::before,
+  .bento-spotlight-card::after {
+    transition: none;
+  }
+  .hero-split-char {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+

@@ -1,7 +1,8 @@
 # TODO.md
 
-- [ ] Confirm with Sagar whether dedicated GitHub repos / live demos exist for **Gig Flow** and **Cyber Hunt** (currently pointing to `https://github.com/sagarkharbikar25`).
-- [ ] Confirm user preference on `DECISION-003` (Dark-only Obsidian vs keeping light mode toggle) and `DECISION-005` (`Cinzel` vs `Instrument Serif` display accent).
-- [ ] Check whether `public/avatar/avatar.png` (existing 3D developer portrait) should be stylized into the Act II foreground/architect silhouette or replaced with bespoke generated cyber-arcane artwork.
-- [ ] Verify GitHub Pages HTTPS enforcement on `sagardev.me` in repo Settings → Pages.
-
+- [ ] Resolve `plan/plan.md` §12 open questions with user before Phase 1:
+  1. Preferred tagline (`"Backend systems, engineered to hold under load."` vs `"Architecting the layer you never see."` vs `"Production-minded. Backend-first. Full-stack when it counts."`).
+  2. Default `FAST_VIEW` on when URL has `?ref=resume` (recommended: Yes).
+  3. Dark-only Observatory (recommended) vs retaining a light-mode toggle.
+- [ ] Confirm whether dedicated public GitHub repos / live URLs exist for **Gig Flow** and **Cyber Hunt** beyond `https://github.com/sagarkharbikar25`.
+- [ ] Verify GitHub Pages HTTPS enforcement on `sagardev.me` in repo Settings -> Pages when user eventually deploys.

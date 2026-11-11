@@ -1,77 +1,74 @@
 ---
-milestone: v2.0 — The Aetherial Systems Observatory
+milestone: v2.0 — The Observatory (plan/plan.md Edition)
 version: 2.0.0
-updated: 2026-11-11T12:35:00+05:30
+updated: 2026-11-11T15:45:00+05:30
 ---
 
 # Roadmap
 
-> **Current Phase:** 1 - Foundation, Asset Hygiene & Modular Shell
-> **Status:** ready for execution
+> **Current Phase:** 0 — Foundation, Token Unification & Dead-Code Purge  
+> **Master Blueprint:** [`.gsd/EXECUTION_PLAN.md`](file:///d:/GitHub/portfolio/.gsd/EXECUTION_PLAN.md) (derived from [`plan/plan.md`](file:///d:/GitHub/portfolio/plan/plan.md) + live repo delta audit)  
+> **Status:** Planned (awaiting user sign-off on Section 12 open questions + go-ahead to execute)
 
-## Must-Haves (from SPEC)
+## Must-Haves (from `plan/plan.md` §10)
 
-- [ ] Modular React 18 + Vite 5 codebase (`data/`, `styles/`, `hooks/`, `components/`, `scenes/`)
-- [ ] Original Obsidian-Gold-Cyan theme, glassmorphic HUD tokens, and font system
-- [ ] Clean, deduplicated `public/` assets + missing `og-image.png` and `favicon.svg`
-- [ ] 5-Act Techfest-inspired Scrollytelling Engine (`Threshold → Skyline → Aether Wipe → 3D Observatory → Dossiers`)
-- [ ] HUD navigation (top chamfered bar, auto-closing popout drawers, mobile 5-tab dock) with zero clipping
-- [ ] Full Act V recruiter proof + unified ERP case study + semantic footer
-- [ ] Cross-browser fallback, `prefers-reduced-motion` safety, and verified >= 90 Lighthouse scores
-
----
-
-## Phases
-
-### Phase 1: Foundation, Asset Hygiene & Modular Shell
-**Status:** 🔄 Planned (Ready for `/execute 1`)
-**Objective:** Untangle the monolithic `src/App.jsx` and `src/index.css` into typed/structured data and style modules, establish the Techfest-inspired Obsidian-Gold-Cyan design system and typography, purge ~6.8 MB of orphaned/duplicate assets, add missing OG/favicon files, and establish baseline Vite build + verification tooling.
-**Requirements:** REQ-01, REQ-02, REQ-03, REQ-04, NFR-04
-
-**Plans:**
-- [ ] Plan 1.1: Design tokens, typography & CSS module system
-- [ ] Plan 1.2: Data layer extraction & verification contracts
-- [ ] Plan 1.3: Asset hygiene, scriptable brand assets & case study sync
-- [ ] Plan 1.4: Custom hooks, scene scaffolds & core navigation shell
-- [ ] Plan 1.5: Recruiter proof dossier components & orchestrator build
+- [ ] First screen shows name, role, 1 Resume CTA (`RESUME.PDF`), `FAST_VIEW`, and hits `< 2.5s` LCP mobile 4G (`<= 180 KB` initial JS gzip before lazy Three)
+- [ ] Single pinned 5-layer `ScrollStage` (`500vh` desktop / `350vh` tablet / `220vh` mobile) scrubs cleanly without layout shift (`CLS < 0.05`)
+- [ ] Docked `InstrumentCard`s never sit under navbar (`restY >= NAV_BOTTOM + 24 >= 115px`)
+- [ ] HUD drawers close on `Escape`, outside click, and hash change; `.nav-divider` springs `scaleY(0→1)`
+- [ ] Reduced-motion and `FAST_VIEW` (`?ref=resume`) paths fully usable
+- [ ] Zero horizontal overflow at `390×844` and `1536×770`
+- [ ] Lazy `ObservatoryCanvas` WebGL disposal verified, IO + `visibilitychange` paused, `webglcontextlost` -> `Starfield2D` fallback
+- [ ] All 4 projects lead with verified outcome metrics (`SAAR` flagged `STATUS: IN DEVELOPMENT`, Cyber Hunt post-mortem accessible), Console `RUN TEST`, Experience, Skills, Credentials, copyable Email + `<footer>`
+- [ ] `.webp` media, self-hosted `.woff2` fonts, `og-image.png`, JSON-LD `Person`, Lighthouse `>= 90` desktop / `>= 80` mobile, A11y `>= 95`, SEO `100`
 
 ---
 
-### Phase 2: Cinematic Storyline Engine & 3D Observatory
-**Status:** ⬜ Not Started
-**Objective:** Build the pinned `100vh` multi-act scrollytelling engine (Act I Threshold radial-blur reveal, Act II mouse-tracked 2.5D layered horizon world with original cyber-arcane artwork, Act III CSS 3D atmospheric mist wipe, Act IV lazy-loaded WebGL 3D Observatory dome with particle system and 3 HUD-safe chamfered pillars), complete with Prologue skip control, `"Jump to Proof"` escape hatch, cross-browser fallbacks, and strict `prefers-reduced-motion` handling.
-**Depends on:** Phase 1
-**Requirements:** REQ-05, REQ-06, REQ-07, NFR-01, NFR-02, NFR-03
+## Phases (`plan/plan.md` §7)
 
+### Phase 0: Foundation, Token Unification & Dead-Code Purge
+**Status:** 🔄 Planned  
 **Plans:**
-- [ ] Plan 2.1: Scroll-progress rig (`ScrollTimeline` + `IntersectionObserver`/rAF fallback) & Prologue / Act I Threshold
-- [ ] Plan 2.2: Act II 2.5D mouse-parallax skyline artwork & Act III 3D mist wipe transition
-- [ ] Plan 2.3: Act IV WebGL 3D Observatory `<canvas>` + 3 HUD-safe command pillars & reduced-motion audit
+- [ ] `0-1`: Purge 7 dead stylesheets + ~7 MB orphan `public/` assets, unify Observatory tokens & strict color ratios in `cyber.css` + `tailwind.config.js`, self-host `.woff2` fonts, verify `CNAME`/Vite/Pages CI ([`0-1-PLAN.md`](file:///d:/GitHub/portfolio/.gsd/phases/0-foundation/0-1-PLAN.md))
 
----
-
-### Phase 3: Fixed HUD Navigation, Proof Dossiers & Case Study Sync
-**Status:** ⬜ Not Started
-**Objective:** Implement the fixed Techfest-inspired HUD navigation shell (top chamfered dock, left chapter rail with auto-closing popout drawers, right social rail, live scroll-spy, and mobile 5-tab bottom bar), connect Act V Engineering Dossiers (`#experience`, `#projects`, `#architecture` with per-tab verification traces, `#skills`, `#credentials`, `#contact`, and semantic `<footer>`), and restyle `public/case-studies/document-portal.html` to share the Observatory visual language.
-**Depends on:** Phase 2
-**Requirements:** REQ-08, REQ-09, REQ-10, NFR-03
-
+### Phase 1: Chapter Data, Preloader Budget & HUD Chrome
+**Status:** ⬜ Not Started (`depends_on: Phase 0`)  
 **Plans:**
-- [ ] Plan 3.1: Fixed HUD shell, auto-closing popout drawers, scroll-spy & responsive 5-tab mobile dock
-- [ ] Plan 3.2: Act V Dossiers (`Experience`, `Projects`, per-tab `Architecture Console`, `Skills`, `Credentials`, `Contact`, `Footer`)
-- [ ] Plan 3.3: Sync `/case-studies/document-portal.html` design system & deep-link routing
+- [ ] `1-1`: Update `src/data/profile.js` (`CH.00–CH.03`, tagline) & `src/data/projects.js` (`outcomeLead`, SAAR `STATUS: IN DEVELOPMENT`, Cyber Hunt post-mortem metadata) ([`1-1-PLAN.md`](file:///d:/GitHub/portfolio/.gsd/phases/1-hud-shell/1-1-PLAN.md))
+- [ ] `1-2`: Upgrade `CustomPreloader` (`<=1.2s` + `sessionStorage` skip), `HudShell` (`.nav-divider` spring, `CH.00–CH.03`, outside-click/hash close, safe-area dock) & `FAST_VIEW` (`?ref=resume`) in `App.jsx` ([`1-2-PLAN.md`](file:///d:/GitHub/portfolio/.gsd/phases/1-hud-shell/1-2-PLAN.md))
 
----
-
-### Phase 4: Performance, Accessibility, SEO & Live Verification
-**Status:** ⬜ Not Started
-**Objective:** Optimize asset payloads (`.webp`/`.avif` + lazy WebGL loading), enforce WCAG AA contrast and full keyboard navigation, finalize SEO/OG metadata and GitHub Actions CI checks, and capture empirical Chrome DevTools verification (desktop `1920x960` + mobile `390x844` screenshots, zero console/404 errors, Lighthouse audit >= 90).
-**Depends on:** Phase 3
-**Requirements:** REQ-11, NFR-01, NFR-02, NFR-03, NFR-04, NFR-05
-
+### Phase 2: Core 2D `ScrollStage` Choreography
+**Status:** ⬜ Not Started (`depends_on: Phase 1`)  
 **Plans:**
-- [ ] Plan 4.1: Bundle/image/WebGL performance tuning, accessibility (`prefers-reduced-motion` & keyboard) & CI checks
-- [ ] Plan 4.2: Empirical Chrome DevTools desktop/mobile visual verification, Lighthouse audit & `README.md` sync
+- [ ] `2-1`: `usePointerLerp.js`, `Starfield2D.js`, 5-layer `ScrollStage.jsx` + `stage.css` (Aperture blur `p 0→0.20`, SEO title `rotateX(70)`, Fog curtain `p 0.20→0.42`, Telemetry count-up `p 0.40→0.55`) ([`2-1-PLAN.md`](file:///d:/GitHub/portfolio/.gsd/phases/2-scroll-stage/2-1-PLAN.md))
+- [ ] `2-2`: `InstrumentCard.jsx`, curved-path flights (`p 0.55→0.90`) clamped `>= 115px` below measured `NAV_BOTTOM`, `gsap.matchMedia()` mobile/reduced-motion tiers, mount in `App.jsx` & delete `HeroSection.jsx` + `PinnedShowcase.jsx` ([`2-2-PLAN.md`](file:///d:/GitHub/portfolio/.gsd/phases/2-scroll-stage/2-2-PLAN.md))
+
+### Phase 3: Lazy `ObservatoryCanvas` 3D Core
+**Status:** ⬜ Not Started (`depends_on: Phase 2`)  
+**Plans:**
+- [ ] `3-1`: Evolve `HeroCanvas.jsx` into dynamic `import()` `ObservatoryCanvas.jsx` with tree-shaken `three` imports, scroll camera dolly (`z -> 6`), `webglcontextlost` -> `Starfield2D` fallback, static 1-frame reduced motion, full GPU `.dispose()` ([`3-1-PLAN.md`](file:///d:/GitHub/portfolio/.gsd/phases/3-observatory-3d/3-1-PLAN.md))
+
+### Phase 4: Proof-First Bento Dossiers & Architecture Traces
+**Status:** ⬜ Not Started (`depends_on: 1-1, 2-2`)  
+**Plans:**
+- [ ] `4-1`: Lead `#projects` with `outcomeLead`, Cyber Hunt Post-mortem drawer/section, SAAR `STATUS: IN DEVELOPMENT` badge, Architecture Console `RUN TEST` assertion trace & `<footer>` check ([`4-1-PLAN.md`](file:///d:/GitHub/portfolio/.gsd/phases/4-bento-proof/4-1-PLAN.md))
+
+### Phase 5: Cross-Device Hardening, Reduced Motion & Fallbacks
+**Status:** ⬜ Not Started (`depends_on: Phase 3, Phase 4`)  
+**Plans:**
+- [ ] `5-1`: Full `prefers-reduced-motion` bypass, `390×844` & `1536×770` overflow audit, `<=480px` blur/fog removal, Resume `<= 2` tab stops, WebGL loss verification ([`5-1-PLAN.md`](file:///d:/GitHub/portfolio/.gsd/phases/5-hardening/5-1-PLAN.md))
+
+### Phase 6: Media Optimization, SEO/OG & Production Audit Gate
+**Status:** ⚠️ Built Locally (DevTools/Lighthouse pending) (`depends_on: Phase 5`)  
+**Plans:**
+- [ ] `6-1`: `.webp` project images + `width`/`height` + `loading="lazy"`, sync `document-portal.html` tokens, `og-image.png`, JSON-LD `Person`, `sitemap.xml`, DevTools/Lighthouse & budget gate ([`6-1-PLAN.md`](file:///d:/GitHub/portfolio/.gsd/phases/6-ship/6-1-PLAN.md))
+
+### Phase 7: Big Sticky Stacking Project Cards Deck & Telemetry Separation
+**Status:** ✅ Implemented & Built Locally (`depends_on: Phase 6`, ready for user preview on `127.0.0.1:4173`)  
+**Plans:**
+- [x] `7-1`: Schema `MAX_PROJECTS = 6` + peaking header tones (`projects.js`, `profile.js`), deduplicate small project cards out of `ScrollStage.jsx` & delete `InstrumentCard.jsx` ([`7-1-PLAN.md`](file:///d:/GitHub/portfolio/.gsd/phases/7-stacking-projects/7-1-PLAN.md))
+- [x] `7-2`: Build `ProjectStackDeck.jsx` (big sticky cascading scroll cards with GSAP depth scrub) & accessible `ProjectInspectModal.jsx` pop-out ([`7-2-PLAN.md`](file:///d:/GitHub/portfolio/.gsd/phases/7-stacking-projects/7-2-PLAN.md))
+- [x] `7-3`: Separate `#telemetry` in `BentoDossiers.jsx`, wire Stack Deck + Pop-out Modal + clean `CH.00–CH.04` scroll-spy in `App.jsx` & `HudShell.jsx` ([`7-3-PLAN.md`](file:///d:/GitHub/portfolio/.gsd/phases/7-stacking-projects/7-3-PLAN.md))
 
 ---
 
@@ -79,23 +76,11 @@ updated: 2026-11-11T12:35:00+05:30
 
 | Phase | Status | Plans | Complete |
 |---|---|---|---|
-| 1 | 🔄 | 0/5 | — |
-| 2 | ⬜ | 0/3 | — |
-| 3 | ⬜ | 0/3 | — |
-| 4 | ⬜ | 0/2 | — |
-
----
-
-## Timeline
-
-| Phase | Started | Completed | Duration |
-|---|---|---|---|
-| 1 | 2026-11-11 | — | — |
-| 2 | — | — | — |
-| 3 | — | — | — |
-| 4 | — | — | — |
-
----
-
-*Last updated: 2026-11-11*
-
+| 0. Foundation & Purge | ✅ | 1 | 1/1 |
+| 1. Data & HUD Shell | ✅ | 2 | 2/2 |
+| 2. Scroll Stage (2D) | ✅ | 2 | 2/2 |
+| 3. Observatory 3D | ✅ | 1 | 1/1 |
+| 4. Bento & Console | ✅ | 1 | 1/1 |
+| 5. Hardening | ⚠️ Code Done (DevTools blocked) | 1 | 1/1 |
+| 6. Ship & Audit | ⚠️ Built Locally (DevTools/Lighthouse pending) | 1 | 1/1 |
+| 7. Project Stack Deck & Modal | ✅ Implemented Locally | 3 | 3/3 |

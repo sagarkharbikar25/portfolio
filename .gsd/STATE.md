@@ -1,46 +1,22 @@
 ---
-updated: 2026-11-11T12:48:00+05:30
+updated: 2026-11-11T19:31:00+05:30
 ---
 
 # Project State
 
 ## Current Position
 
-**Milestone:** v2.0 — The Aetherial Systems Observatory
-**Phase:** 1 - Foundation, Asset Hygiene & Modular Shell
-**Status:** Ready for execution (`/execute 1`)
-**Plan:** 5 plans created across 3 waves (`1-PLAN.md` through `5-PLAN.md`, `plan-checker` passed)
+**Milestone:** `sagardev.me` v2 — **"The Observatory"** ([`plan/plan.md`](file:///d:/GitHub/portfolio/plan/plan.md))  
+**Approach:** GSD Phase-Wise Execution + Ponytail (`full`)  
+**Status:** Phases 0–7 implemented & built locally (`http://127.0.0.1:4173/`). Ready for local browser verification (`no git merge / no git push`).
 
-## Last Action
+## Verified Results
 
-Completed Phase 1 technical research (`.gsd/phases/1/RESEARCH.md`) via `gsd-researcher` and authored 5 atomic Phase 1 execution plans (`.gsd/phases/1/1-PLAN.md`..`5-PLAN.md`) via `gsd-planner`, verified against all 6 `plan-checker` dimensions.
+- Phase 7 (`7-1`, `7-2`, `7-3`) completed cleanly: `ScrollStage` trimmed to 3-beat hero (`320vh` / `230vh` / `160vh`), `InstrumentCard.jsx` deleted, `ProjectStackDeck.jsx` (`MAX_PROJECTS = 6`, peeking sticky headers + GSAP scrub depth + `INSPECT SYSTEM`), `ProjectInspectModal.jsx` (full dossier + Cyber Hunt Post-mortem pop-out), and `#telemetry` Bento cleanly separated.
+- All 4 project screenshots converted to compressed `.webp` (`235 KB` combined across all 4) with natural dimensions and `loading="lazy"`; ~7 MB orphaned/duplicate assets & 7 unimported CSS files purged.
+- Self-hosted Latin `.woff2` fonts (`Space Grotesk`, `JetBrains Mono`, `Cinzel`) preloaded locally alongside `og-image.png`, `sitemap.xml`, `robots.txt`, and JSON-LD `Person` schema.
 
-## Next Steps
+## Open Runtime Verification (Local User / DevTools)
 
-1. Confirm open user decisions (`DECISION-003` dark-only Obsidian vs light toggle, `DECISION-005` `Cinzel` vs `Instrument Serif`, Gig Flow / Cyber Hunt repo URLs, and whether to keep `avatar.png` for Act II).
-2. Run `/execute 1` (Wave 1: Plans `1.1`, `1.2`, `1.3` -> Wave 2: Plan `1.4` -> Wave 3: Plan `1.5`).
-3. Verify Phase 1 empirically (`/verify 1`), then run `/plan 2` for the 5-Act Scrollytelling Engine & WebGL Observatory.
-
-## Active Decisions
-
-| Decision | Choice | Made | Affects |
-|---|---|---|---|
-| DEC-001 | Retain React 18 + Vite 5 | 2026-11-11 | All Phases |
-| DEC-002 | Original Cyber-Arcane Assets (no Techfest asset reuse) | 2026-11-11 | Phases 1–2 |
-| DEC-003 | Obsidian Dark-Only Theme | 2026-11-11 | Phases 1, 3 |
-| DEC-004 | Hybrid CSS Scroll-Driven + `rAF`/`IntersectionObserver` + Lazy WebGL | 2026-11-11 | Phase 2 |
-| DEC-005 | `Space Grotesk` + `Cinzel` + `JetBrains Mono` | 2026-11-11 | Phases 1, 3 |
-
-## Blockers
-
-- None.
-
-## Concerns
-
-- Keep React scroll animations strictly in CSS variables / refs (`--scroll-p`) so scrolling never triggers React re-renders.
-- Verify `overflow-x: clip` (not `hidden`) on `html`/`body` in Phase 1 so Phase 2 `position: sticky` viewport works cleanly.
-- Dedicated GitHub repo / live demo URLs for Gig Flow and Cyber Hunt need confirmation before final launch.
-
-## Session Context
-
-Techfest 2026 (`https://techfest.org/`) was visually inspected via Chrome DevTools on 2026-11-11 (`1920x962` desktop and `390x844` mobile). Phase 1 (`1-PLAN.md`..`5-PLAN.md`) sets up the clean modular architecture, contrast-safe tokens, asset hygiene, and baseline dossier shell before Phase 2 adds the 5-Act Scrollytelling + WebGL 3D Observatory.
+1. Open `http://127.0.0.1:4173/` and `http://127.0.0.1:4173/?ref=resume` in Chrome (hard-refresh `Ctrl+Shift+R` after rebuild).
+2. Confirm clean separation between `00 // IGNITION` (Hero + 3D Core + Metrics), `01 // INSTRUMENTS` (Big Sticky Stacking Cards deck + `INSPECT SYSTEM` pop-out modal), and `02 // TELEMETRY` (Architecture Console, Experience, Tiered Skills, Credentials), plus zero overflow on desktop (`1536×770`) and mobile (`390×844`).

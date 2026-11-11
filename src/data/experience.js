@@ -1,39 +1,27 @@
-/**
- * Experience & Career Milestones
- * Verified professional engagements and leadership roles.
- */
-
-export const EXPERIENCE_DATA = [
+export const EXPERIENCE = [
   {
-    id: "4ibiz-techno-solutions",
-    company: "4iBiz Techno-Solutions Pvt. Ltd.",
-    companyTag: "@ 4iBiz Techno-Solutions Pvt. Ltd.",
-    role: "Full-Stack Web Developer Intern",
-    period: "July 2024 – Present",
-    location: "Nagpur, India (Remote)",
-    badge: "Production Systems",
+    id: '4ibiz',
+    role: 'Full Stack Developer Intern',
+    company: '@ 4iBiz Techno-Solutions Pvt. Ltd.',
+    period: 'Remote • Jun 2026 – Aug 2026',
     deliverables: [
-      "Engineered production REST APIs and state workflow engines for high-volume enterprise SaaS applications.",
-      "Architected database optimizations and query patterns across PostgreSQL and MongoDB, slashing query latency.",
-      "Migrated mission-critical HRMS mobile platform from Flutter to React Native with full staging API parity and strict auth controls.",
-      "Executed 100+ end-to-end integration test suites across authentication, RBAC authorization, and state transitions."
+      'Built full-stack features (backend services and frontend modules) for a production gym-management SaaS platform.',
+      'Migrated the VZBAL HRMS mobile app from Flutter to React Native and integrated staging APIs, reaching full feature parity.',
+      'Ran 100+ manual test cases across authentication, employee management, and settings; documented 15+ bugs, including high-severity data-upload and third-party integration issues.',
+      'Worked in Git-based, Agile workflows with the engineering team.',
     ],
-    technologies: ["Node.js", "Express", "React Native", "PostgreSQL", "MongoDB", "REST APIs", "Agile / Git", "QA Testing"]
+    stack: ['React Native', 'Node.js', 'Express.js', 'REST APIs', 'Agile / Git', 'QA Testing'],
   },
   {
-    id: "techalfa-schollogma",
-    company: "TechAlfa & Schollogma CSE Forum",
-    companyTag: "@ TechAlfa & Schollogma CSE Forum",
-    role: "Technical Lead & System Administrator",
-    period: "Aug 2023 – May 2024",
-    location: "Nagpur, India",
-    badge: "Community & Leadership",
+    id: 'techalfa-schollogma',
+    role: 'Technical Member & Forum Contributor',
+    company: '@ TechAlfa & Schollogma CSE Forum',
+    period: 'Nagpur • Jan 2025 – Present',
     deliverables: [
-      "Administered server environments and containerized CTF challenge infrastructure for university cybersecurity events.",
-      "Engineered anti-tamper real-time scoring APIs and dynamic leaderboard telemetry handling 500+ participants.",
-      "Authored comprehensive technical breakdowns on state machine design, idempotency, and API reliability for 200+ engineers.",
-      "Conducted hands-on technical workshops on Linux system administration, Postman contract testing, and Git collaboration."
+      'Engineered backend scoring APIs and dynamic question progression for collegiate technical competitions (Cyber Hunt platform).',
+      'Authored technical breakdowns on state machines, API lifecycle design, and distributed data consistency for 200+ CSE peers.',
+      'Conducted peer workshops on Git version control, Postman API contract testing, and REST architecture fundamentals.',
     ],
-    technologies: ["Linux", "Docker", "Python", "Flask", "PostgreSQL", "WebSockets", "API Design", "Technical Writing"]
-  }
+    stack: ['Next.js', 'Supabase', 'PostgreSQL', 'Technical Writing', 'API Design'],
+  },
 ];

@@ -5,21 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Case Study: Digital Document Service Portal | Sagar Kharbikar</title>
     <meta name="description" content="Deep-dive backend engineering case study: atomic state machines, RBAC, and audit log atomicity in an academic ERP portal.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        @font-face {
+            font-family: 'Space Grotesk';
+            font-style: normal;
+            font-weight: 400 700;
+            font-display: swap;
+            src: url('/fonts/space-grotesk-latin.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'JetBrains Mono';
+            font-style: normal;
+            font-weight: 400 700;
+            font-display: swap;
+            src: url('/fonts/jetbrains-mono-latin.woff2') format('woff2');
+        }
         :root {
-            --bg-primary: #0a0a0b;
-            --bg-card: #141418;
-            --bg-code: #0d1117;
-            --border: #27272a;
-            --text-primary: #f1f5f9;
-            --text-secondary: #cbd5e1;
-            --text-tertiary: #94a3b8;
-            --accent: #3b82f6;
-            --accent-glow: rgba(59, 130, 246, 0.15);
-            --font-sans: 'Inter', -apple-system, sans-serif;
+            --bg-primary: #08080c;
+            --bg-card: #0f101a;
+            --bg-code: #0b0d17;
+            --border: rgba(150, 200, 255, 0.18);
+            --text-primary: #e6f4f5;
+            --text-secondary: #b9cacb;
+            --text-tertiary: #849495;
+            --accent: #ffd700;
+            --cyan: #00f0ff;
+            --accent-glow: rgba(0, 240, 255, 0.14);
+            --font-sans: 'Space Grotesk', system-ui, sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -166,7 +178,7 @@
 <body>
     <div class="container">
         <nav class="back-nav">
-            <a href="../index.html">&larr; Back to Portfolio</a>
+            <a href="/#projects">&larr; Back to Systems Observatory</a>
         </nav>
 
         <header class="case-header">

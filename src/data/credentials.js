@@ -1,67 +1,49 @@
-/**
- * Credentials, Certifications, Awards & Education
- * 6 verified achievement and academic milestones.
- */
-
-export const CREDENTIALS_DATA = [
+export const CREDENTIALS = [
   {
-    id: "btech-degree",
-    type: "education",
-    badge: "ACADEMIC RIGOR",
-    title: "B.Tech in Computer Science and Engineering",
-    issuer: "JD College of Engineering & Management, Nagpur",
-    date: "2024 – 2028 (Expected)",
-    metric: "8.70 CGPA",
-    description: "Top academic standing with core focus on Data Structures, Algorithms, Operating Systems, DBMS, and Distributed Architecture."
+    id: 'mini-project',
+    badge: '1ST PRIZE (COLLEGE LEVEL)',
+    title: 'Mini Project Competition (2025)',
+    detail:
+      'Awarded 1st Prize at JD College of Engineering & Management for designing and building the Digital Document Service Portal.',
+    iconKey: 'trophy',
   },
   {
-    id: "first-prize-erp",
-    type: "award",
-    badge: "1ST PRIZE WINNER",
-    title: "State-Level Project Competition",
-    issuer: "State Project Conclave / JDCOEM",
-    date: "2025",
-    metric: "1st Place Award",
-    description: "Awarded 1st Prize for architectural design, tamper-evident cryptographic state verification, and live institutional deployment of the Digital Document Service Portal."
+    id: 'national-hackathon',
+    badge: 'TOP 10 / 84+ TEAMS',
+    title: 'National Level Hackathon (Mar 2026)',
+    detail:
+      'Ranked in the Top 10 out of 84+ engineering teams nationwide at WideSoftech, Priyadarshini College of Engineering, Nagpur.',
+    iconKey: 'award',
   },
   {
-    id: "internship-4ibiz",
-    type: "certification",
-    badge: "INDUSTRY EXPERIENCE",
-    title: "4iBiz Techno-Solutions Internship Certification",
-    issuer: "4iBiz Techno-Solutions Pvt. Ltd.",
-    date: "2024",
-    metric: "Production Verified",
-    description: "Certified completion of enterprise backend engineering, full-stack modules, API integrations, and mobile platform migration with full test coverage."
+    id: 'oracle-ai',
+    badge: 'ORACLE CERTIFIED',
+    title: 'Agentic AI Foundations Associate (Jul 2026)',
+    detail:
+      'Certified foundation mastery in agentic workflows, artificial intelligence topologies, and machine learning principles.',
+    iconKey: 'graduation',
   },
   {
-    id: "nptel-python",
-    type: "certification",
-    badge: "ELITE CERTIFICATION",
-    title: "Python for Data Science (NPTEL Elite)",
-    issuer: "NPTEL / IIT Madras",
-    date: "2024",
-    metric: "Elite Grade",
-    description: "Rigorous certification covering algorithmic Python, scientific data pipelines, mathematical computing, and data structures."
+    id: 'deloitte-sim',
+    badge: 'DELOITTE SIMULATION',
+    title: 'Cyber Security Simulation (Mar 2026)',
+    detail:
+      'Completed practical simulation on identity access controls, threat modeling, and network defense protocols via Forage.',
+    iconKey: 'shield',
   },
   {
-    id: "fullstack-specialization",
-    type: "certification",
-    badge: "SYSTEMS SPECIALIZATION",
-    title: "Full-Stack Web Development Specialization",
-    issuer: "Industry Technical Program",
-    date: "2024",
-    metric: "Specialization Honor",
-    description: "Advanced mastery in Node.js ecosystem, modern React SPA architectures, asynchronous workflows, and secure API gateways."
+    id: 'community',
+    badge: 'COMMUNITY & LEADERSHIP',
+    title: 'Schollogma CSE Forum & TechAlfa',
+    detail:
+      'Content Writer at Schollogma CSE Forum (Jan–May 2025), Technical Team Member at TechAlfa, and Internshala Student Partner.',
+    iconKey: 'users',
   },
   {
-    id: "cyber-hunt-lead",
-    type: "leadership",
-    badge: "TECHNICAL LEADERSHIP",
-    title: "Cyber Hunt Technical Lead & Event Architecture",
-    issuer: "TechAlfa & Schollogma CSE Forum",
-    date: "2024",
-    metric: "500+ Participants",
-    description: "Designed competition infrastructure, scored CTF flags in real-time, managed containerized challenges, and mentored 200+ junior student engineers."
-  }
+    id: 'education',
+    badge: 'EDUCATION',
+    title: 'B.Tech, Computer Science & Engineering',
+    detail: 'JD College of Engineering & Management, Nagpur • CGPA: 8.70 (Sept 2024 – June 2028).',
+    iconKey: 'landmark',
+  },
 ];

@@ -1,0 +1,128 @@
+/* Observatory Pinned ScrollStage (CSS Grid, Aperture Blur & Fog Bands) */
+
+.stage-runway {
+  position: relative;
+  height: 320vh;
+}
+
+@media (max-width: 1023px) {
+  .stage-runway {
+    height: 230vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .stage-runway {
+    height: 160vh;
+  }
+}
+
+.sticky-viewport {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  perspective: 1100px;
+}
+
+.parallax-layer-deep {
+  transform: translate3d(
+    calc(var(--mx, 0) * -14px),
+    calc(var(--my, 0) * -10px),
+    0
+  );
+  will-change: transform;
+}
+
+.parallax-layer-mid {
+  transform: translate3d(
+    calc(var(--mx, 0) * 18px),
+    calc(var(--my, 0) * 12px),
+    0
+  );
+  will-change: transform;
+}
+
+/* Layer 4: Radial aperture blur mask */
+.aperture-mask {
+  --r1: 0%;
+  background: rgba(8, 8, 12, 0.42);
+  backdrop-filter: blur(12px) brightness(0.6);
+  -webkit-backdrop-filter: blur(12px) brightness(0.6);
+  -webkit-mask-image: radial-gradient(
+    circle at center,
+    transparent var(--r1),
+    #000 calc(var(--r1) + 18%)
+  );
+  mask-image: radial-gradient(
+    circle at center,
+    transparent var(--r1),
+    #000 calc(var(--r1) + 18%)
+  );
+  will-change: opacity, mask-image;
+}
+
+/* Layer 6: Lightweight GPU fog sweep bands */
+.fog-band {
+  will-change: transform, opacity;
+  background: radial-gradient(
+    ellipse 62% 48% at 50% 50%,
+    rgba(111, 196, 242, 0.14) 0%,
+    rgba(15, 25, 45, 0.52) 48%,
+    transparent 76%
+  );
+}
+
+/* Mobile <= 480px relief: disable backdrop-filter stack & heavy fog curtain */
+@media (max-width: 480px) {
+  .aperture-mask {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(8, 8, 12, 0.72);
+  }
+  .fog-band {
+    display: none;
+  }
+}
+
+/* Reduced motion / Fast View static collapse */
+.stage-runway-static {
+  height: auto;
+}
+
+/* Cascading Sticky Project Stack Deck (Desktop >= 768px) */
+@media (min-width: 768px) {
+  .stack-card-sticky {
+    position: sticky;
+    top: var(--stack-top, 84px);
+    will-change: transform, opacity;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stage-runway {
+    height: auto;
+  }
+  .sticky-viewport {
+    position: relative;
+    height: auto;
+    min-height: 92vh;
+    overflow: visible;
+  }
+  .aperture-mask,
+  .fog-band {
+    display: none !important;
+  }
+  .parallax-layer-deep,
+  .parallax-layer-mid {
+    transform: none !important;
+  }
+  .stack-card-sticky {
+    position: relative;
+    top: auto;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+

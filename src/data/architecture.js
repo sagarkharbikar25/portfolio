@@ -1,95 +1,31 @@
-/**
- * Architecture Principles, Interactive Code Tabs & Verification Telemetry Traces
- * Code contracts illustrating deterministic state transitions, edge AI, and verified system health.
- */
-
 export const ARCHITECTURE_PRINCIPLES = [
   {
-    id: "contracts",
-    num: "01",
-    title: "Clean Contracts & Fault Isolation",
-    description: "Every module exposes strict, typed boundaries. Preconditions are validated at the perimeter so downstream systems fail predictably and gracefully."
+    id: 'api-first',
+    num: '// 01 API-FIRST DESIGN',
+    title: 'Contracts & Error Shapes',
+    description:
+      'Contracts and error shapes defined before implementation. Strict typing and Bitmask RBAC guards eliminate invalid requests at the boundary.',
+    tabKey: 'RBAC_Guard.ts',
   },
   {
-    id: "state-machines",
-    num: "02",
-    title: "Deterministic State Machines",
-    description: "State transitions execute atomically with query-level preconditions and append-only cryptographic audit trails, preventing concurrency drifts."
+    id: 'data-integrity',
+    num: '// 02 DATA INTEGRITY',
+    title: 'Atomic Preconditions',
+    description:
+      'Constraints and indexes at the database level. Precondition queries arbitrate concurrent writes so state can never corrupt or double-commit.',
+    tabKey: 'AtomicTransition.ts',
   },
   {
-    id: "local-first-ai",
-    num: "03",
-    title: "Local-First AI & Zero-Knowledge Storage",
-    description: "Inference pipelines run on-device via quantized neural models (Whisper/Piper/Ollama) with zero cloud dependencies and zero data exfiltration."
-  }
+    id: 'security-default',
+    num: '// 03 SECURITY BY DEFAULT',
+    title: 'Hardened Execution',
+    description:
+      'RBAC on the API, hashed passwords, validated input, rate-limited auth, and cryptographic HMAC verification for remote webhook dispatch.',
+    tabKey: 'LocalAudioPipe.py',
+  },
 ];
 
 export const CODE_TABS = {
-  'DocumentStatePipeline.ts': {
-    title: 'DocumentStatePipeline.ts',
-    badge: 'State Machine / Concurrency',
-    lines: [
-      { num: 1, text: '// Deterministic document transition pipeline with cryptographic HMAC audit', type: 'comment' },
-      { num: 2, text: 'export async function transitionDocumentState(', type: 'normal' },
-      { num: 3, text: '  documentId: string, currentState: Status, targetState: Status, actor: Principal', type: 'normal' },
-      { num: 4, text: '): Promise<DocumentRecord> {', type: 'normal' },
-      { num: 5, text: '  const transition = VALID_TRANSITIONS.find(t => t.from === currentState && t.to === targetState);', type: 'normal' },
-      { num: 6, text: '  if (!transition) throw new InvalidTransitionError(currentState, targetState);', type: 'keyword' },
-      { num: 7, text: '  await requireRole(actor, transition.allowedRoles);', type: 'normal' },
-      { num: 8, text: '  const auditSignature = computeHmacSha256(documentId, targetState, actor.id);', type: 'normal' },
-      { num: 9, text: '  const updated = await Document.findOneAndUpdate(', type: 'normal' },
-      { num: 10, text: '    { _id: documentId, status: currentState }, // Precondition lock prevents race conditions', type: 'highlight' },
-      { num: 11, text: '    {', type: 'normal' },
-      { num: 12, text: '      $set: { status: targetState, modifiedAt: new Date() },', type: 'normal' },
-      { num: 13, text: '      $push: { auditTrail: { from: currentState, to: targetState, actorId: actor.id, sig: auditSignature } }', type: 'normal' },
-      { num: 14, text: '    },', type: 'normal' },
-      { num: 15, text: '    { new: true, runValidators: true }', type: 'normal' },
-      { num: 16, text: '  );', type: 'normal' },
-      { num: 17, text: '  if (!updated) throw new ConflictError("Document state already updated concurrently.");', type: 'keyword' },
-      { num: 18, text: '  return updated;', type: 'normal' },
-      { num: 19, text: '}', type: 'normal' }
-    ]
-  },
-  'SaarNeuralPipeline.py': {
-    title: 'SaarNeuralPipeline.py',
-    badge: 'Whisper / Edge Neural Ops',
-    lines: [
-      { num: 1, text: '# Zero-cloud-dependency local neural speech & intent pipeline', type: 'comment' },
-      { num: 2, text: 'class SaarNeuralPipeline:', type: 'keyword' },
-      { num: 3, text: '    def __init__(self, wake_word="saar", model_path="models/whisper-base.en"):', type: 'normal' },
-      { num: 4, text: '        self.wake_word = wake_word', type: 'normal' },
-      { num: 5, text: '        self.stt = LocalWhisper(model=model_path, compute_type="int8")', type: 'normal' },
-      { num: 6, text: '        self.tts = PiperTTS(speed=1.15, voice="en_US-lessac")', type: 'normal' },
-      { num: 7, text: '        self.classifier = IntentClassifier(threshold=0.85)', type: 'normal' },
-      { num: 8, text: '', type: 'normal' },
-      { num: 9, text: '    async def process_stream(self, pcm_chunk: bytes) -> AsyncIterator[bytes]:', type: 'normal' },
-      { num: 10, text: '        transcription = await self.stt.transcribe(pcm_chunk)', type: 'normal' },
-      { num: 11, text: '        if self.wake_word not in transcription.lower():', type: 'keyword' },
-      { num: 12, text: '            return', type: 'keyword' },
-      { num: 13, text: '        intent, payload = self.classifier.parse(transcription)', type: 'normal' },
-      { num: 14, text: '        result = await self.execute_workflow(intent, payload)', type: 'normal' },
-      { num: 15, text: '        async for audio_chunk in self.tts.synthesize_stream(result):', type: 'normal' },
-      { num: 16, text: '            yield audio_chunk  # Edge CPU latency < 45ms', type: 'highlight' }
-    ]
-  },
-  'SystemHealth.sh': {
-    title: 'SystemHealth.sh',
-    badge: 'Live Telemetry & Audits',
-    lines: [
-      { num: 1, text: '#!/usr/bin/env bash', type: 'comment' },
-      { num: 2, text: 'set -euo pipefail', type: 'normal' },
-      { num: 3, text: 'echo "=== INFRASTRUCTURE TELEMETRY & VERIFICATION ==="', type: 'normal' },
-      { num: 4, text: 'echo "Host: sagardev.me (B.Tech CSE / 4iBiz Production Stack)"', type: 'normal' },
-      { num: 5, text: 'echo "p95 API Latency: 12.4ms | HMAC Verify: 1.18ms"', type: 'highlight' },
-      { num: 6, text: 'echo "Databases: PostgreSQL (Primary) + MongoDB (Audit) + Redis (Pool: 0.18ms)"', type: 'normal' },
-      { num: 7, text: 'echo "Memory Pressure: 41% utilized | CPU Load Avg: 0.18 [OK]"', type: 'normal' },
-      { num: 8, text: 'echo "Docker Containers: 4/4 running healthy | Zero restart loops"', type: 'highlight' },
-      { num: 9, text: 'echo "State Machine Drift: 0.00% (Strict Precondition Enforcement)"', type: 'highlight' },
-      { num: 10, text: 'echo "TLS Certificate: Valid | A+ Security Grade | Zero Leaks"', type: 'normal' },
-      { num: 11, text: 'exit 0', type: 'keyword' }
-    ]
-  },
-  // Backward-compatible aliases
   'AtomicTransition.ts': {
     title: 'AtomicTransition.ts',
     badge: 'MongoDB / Concurrency',
@@ -108,8 +44,29 @@ export const CODE_TABS = {
       { num: 12, text: '  );', type: 'normal' },
       { num: 13, text: '  if (!updated) throw new ConflictError("State already modified.");', type: 'keyword' },
       { num: 14, text: '  return updated;', type: 'normal' },
-      { num: 15, text: '}', type: 'normal' }
-    ]
+      { num: 15, text: '}', type: 'normal' },
+    ],
+  },
+  'RBAC_Guard.ts': {
+    title: 'RBAC_Guard.ts',
+    badge: 'JWT Bitmask Middleware',
+    lines: [
+      { num: 1, text: '// Scoped bitmask permission guard for academic hierarchy', type: 'comment' },
+      { num: 2, text: 'export const requireRole = (...allowedRoles: Role[]) => {', type: 'normal' },
+      { num: 3, text: '  return (req: AuthenticatedRequest, res: Response, next: NextFunction) => {', type: 'normal' },
+      { num: 4, text: '    const userRole = req.user?.role;', type: 'normal' },
+      { num: 5, text: '    if (!userRole || !allowedRoles.includes(userRole)) {', type: 'keyword' },
+      { num: 6, text: '      return res.status(403).json({', type: 'normal' },
+      { num: 7, text: '        error: "FORBIDDEN_SCOPE",', type: 'normal' },
+      { num: 8, text: '        message: "Insufficient privilege level for this route.",', type: 'normal' },
+      { num: 9, text: '        required: allowedRoles', type: 'normal' },
+      { num: 10, text: '      });', type: 'normal' },
+      { num: 11, text: '    }', type: 'normal' },
+      { num: 12, text: '    req.auditClaim = { actorId: req.user.id, role: userRole };', type: 'normal' },
+      { num: 13, text: '    next();', type: 'normal' },
+      { num: 14, text: '  };', type: 'normal' },
+      { num: 15, text: '};', type: 'normal' },
+    ],
   },
   'LocalAudioPipe.py': {
     title: 'LocalAudioPipe.py',
@@ -128,16 +85,54 @@ export const CODE_TABS = {
       { num: 11, text: '        intent, payload = self.classifier.parse(text)', type: 'normal' },
       { num: 12, text: '        res = await self.execute_workflow(intent, payload)', type: 'normal' },
       { num: 13, text: '        async for audio in self.tts.synthesize_stream(res):', type: 'normal' },
-      { num: 14, text: '            yield audio  # TTFB < 1.4s on local CPU', type: 'highlight' }
-    ]
-  }
+      { num: 14, text: '            yield audio  # TTFB < 1.4s on local CPU', type: 'highlight' },
+    ],
+  },
+  'SystemHealth.sh': {
+    title: 'SystemHealth.sh',
+    badge: 'Live Telemetry',
+    lines: [
+      { num: 1, text: '#!/usr/bin/env bash', type: 'comment' },
+      { num: 2, text: 'echo "=== INFRASTRUCTURE TELEMETRY ==="', type: 'normal' },
+      { num: 3, text: 'echo "Host: https://sagardev.me (B.Tech CSE · CGPA 8.70)"', type: 'normal' },
+      { num: 4, text: 'echo "Pool: Supabase PgBouncer + Redis Leaderboard Cache"', type: 'highlight' },
+      { num: 5, text: 'echo "Datastores: PostgreSQL + MongoDB · Strict RBAC Guards"', type: 'normal' },
+      { num: 6, text: 'echo "Invariant: Atomic Query Precondition Lock Verified"', type: 'highlight' },
+      { num: 7, text: 'echo "Target: SDE, Backend, or Full-Stack/MERN Internships"', type: 'normal' },
+      { num: 8, text: 'exit 0', type: 'keyword' },
+    ],
+  },
 };
 
 export const VERIFICATION_TRACES = {
-  'DocumentStatePipeline.ts': "✔ 14 transition tests passed | 0 regressions | HMAC verified in 1.18ms",
-  'SaarNeuralPipeline.py': "✔ Wake-word engine ready | Whisper-base CPU inference: 42.4ms | Intent confidence: 0.984",
-  'SystemHealth.sh': "✔ System check PASS | Load avg: 0.18 | Memory: 41% | Docker: 4/4 containers healthy",
-  // Aliases for compatibility
-  'AtomicTransition.ts': "✔ 14 transition tests passed | 0 regressions | HMAC verified in 1.18ms",
-  'LocalAudioPipe.py': "✔ Wake-word engine ready | Whisper-base CPU inference: 42.4ms | Intent confidence: 0.984"
+  'AtomicTransition.ts':
+    'PASS  __tests__/state_machine.spec.ts (38ms)\n' +
+    '  ✓ Concurrency lock test: 10 parallel approval requests (18ms)\n' +
+    '  ✓ Precondition check: Only 1 transition committed, 9 ConflictErrors (8ms)\n' +
+    '  ✓ Audit trail integrity: 100% deterministic hash match (4ms)\n\n' +
+    'Test Suites: 1 passed, 1 total\n' +
+    'Tests:       3 passed, 3 total\n' +
+    'Status:      ALL CHECKS VERIFIED ✓',
+  'RBAC_Guard.ts':
+    'PASS  __tests__/rbac_guard.spec.ts (24ms)\n' +
+    '  ✓ Unprivileged role rejected with 403 FORBIDDEN_SCOPE (7ms)\n' +
+    '  ✓ Missing bearer claim denied before controller execution (6ms)\n' +
+    '  ✓ Authorized role attaches immutable actorId + role auditClaim (5ms)\n\n' +
+    'Test Suites: 1 passed, 1 total\n' +
+    'Tests:       3 passed, 3 total\n' +
+    'Status:      ACCESS BOUNDARY ENFORCED ✓',
+  'LocalAudioPipe.py':
+    'PASS  tests/test_local_audio_pipe.py (0.41s)\n' +
+    '  ✓ Wake-word gate ignores ambient speech without "saar" (0.04s)\n' +
+    '  ✓ LocalWhisper + PiperTTS stream yields first audio frame < 1.4s TTFB\n' +
+    '  ✓ Command whitelist rejects unapproved shell actions cleanly\n\n' +
+    '3 passed in 0.41s · ZERO CLOUD AUDIO EGRESS ✓',
+  'SystemHealth.sh':
+    '=== INFRASTRUCTURE TELEMETRY ===\n' +
+    'Host: https://sagardev.me (B.Tech CSE · CGPA 8.70)\n' +
+    'Pool: Supabase PgBouncer + Redis Leaderboard Cache ✓\n' +
+    'Datastores: PostgreSQL + MongoDB · Strict RBAC Guards ✓\n' +
+    'Invariant: Atomic Query Precondition Lock Verified ✓\n' +
+    'Target: SDE, Backend, or Full-Stack/MERN Internships\n' +
+    'exit code 0 ✓',
 };
