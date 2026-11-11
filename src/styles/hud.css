@@ -1,0 +1,221 @@
+/* ==========================================================================
+   HUD Navigation Bar & Mobile Drawer System
+   Targets .nav-civic-root (DEC-003 Dark-Only Obsidian Shell)
+   ========================================================================== */
+
+.nav-civic-root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--hud-height);
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border-hud);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 4px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+}
+
+.nav-hex-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-hud);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-code);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text-pure);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.nav-brand-title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.98rem;
+  color: var(--text-pure);
+  letter-spacing: -0.01em;
+}
+
+.nav-micro-badge {
+  font-family: var(--font-code);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--cyan-electric);
+  background: rgba(111, 196, 242, 0.08);
+  border: 1px solid var(--border-hud);
+  padding: 2px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.06em;
+}
+
+/* Center Segmented Pill Dock */
+.nav-segmented-dock {
+  display: flex;
+  align-items: center;
+  background: rgba(14, 18, 26, 0.85);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  padding: 4px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.nav-segmented-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 500;
+  padding: 6px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.nav-segmented-btn:hover {
+  color: var(--text-pure);
+}
+
+.nav-segmented-btn.active {
+  background: var(--text-pure);
+  color: var(--bg-void);
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Right Nav Controls */
+.nav-right-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-ghost-link {
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.15s;
+}
+
+.nav-ghost-link:hover {
+  color: var(--text-pure);
+}
+
+.live-engine-pill {
+  background: var(--text-pure);
+  color: var(--bg-void);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 7px 16px;
+  border-radius: 999px;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  box-shadow: 0 0 20px rgba(111, 196, 242, 0.35);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.live-engine-pill:hover {
+  box-shadow: 0 0 30px rgba(111, 196, 242, 0.55);
+  transform: translateY(-1px);
+}
+
+.engine-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--emerald-live);
+  box-shadow: 0 0 8px var(--emerald-live);
+}
+
+.theme-toggle-btn {
+  display: none; /* DEC-003: Obsidian dark-only theme */
+}
+
+.nav-mobile-toggle,
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-pure);
+  padding: 6px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile Menu Drawer */
+.mobile-menu-overlay {
+  position: fixed;
+  top: var(--hud-height);
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 12, 0.96);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border-bottom: 1px solid var(--border-hud);
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 999;
+}
+
+.mobile-menu-link {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  padding: 8px 0;
+  transition: color 0.15s;
+  display: block;
+}
+
+.mobile-menu-link:hover,
+.mobile-menu-link:focus-visible {
+  color: var(--cyan-electric);
+}

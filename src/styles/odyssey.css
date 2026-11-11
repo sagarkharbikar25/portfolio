@@ -1,0 +1,20 @@
+/* ==========================================================================
+   Odyssey Scrollytelling Stage Scaffolding (Phase 2 Mount Point)
+   ========================================================================== */
+
+.odyssey-stage {
+  position: relative;
+  width: 100%;
+}
+
+.odyssey-sticky-viewport {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.odyssey-act-frame {
+  position: relative;
+  width: 100%;
+  will-change: transform;
+}
