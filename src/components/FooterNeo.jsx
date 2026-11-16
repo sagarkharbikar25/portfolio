@@ -5,8 +5,8 @@ import { PROFILE } from '../data/profile';
 const QUICK_LINKS = [
   { label: 'Home', href: '#hero' },
   { label: 'About', href: '#about' },
-  { label: 'Service', href: '#services' },
-  { label: 'Projects', href: '#projects' },
+  { label: 'Capabilities', href: '#capabilities' },
+  { label: 'Work', href: '#projects' },
   { label: 'Contact', href: '#contact' },
 ];
 

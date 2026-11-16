@@ -1,45 +1,89 @@
 import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { PROJECTS } from '../data/projects';
 
-const SERVICES = [
+const CAPABILITIES = [
   {
     num: '01',
     title: 'Backend Systems & API Architecture',
     tagline: 'Deterministic state machines, role-based access control, and low-latency REST APIs.',
     features: ['Approval State Machines', 'RBAC & Audit Trails', 'Schema Validation'],
+    targetProjectId: 'document-portal',
+    actionLabel: 'View Document Portal Proof',
+    href: '#projects',
   },
   {
     num: '02',
     title: 'Database Scaling & Concurrency',
-    tagline: 'Transactional consistency, PgBouncer pooling, and in-memory Redis caching.',
+    tagline: 'Transactional consistency, PgBouncer pooling, and in-memory Redis caching under load.',
     features: ['PostgreSQL & Indexes', 'Redis Queues & Locks', 'Sub-50ms Latency'],
+    targetProjectId: 'cyber-hunt',
+    actionLabel: 'View Cyber Hunt Infra Case',
+    href: '#projects',
   },
   {
     num: '03',
     title: 'AI Pipelines & Local LLMs',
-    tagline: 'Deterministic agent orchestration, local speech-to-speech, and streaming workflows.',
+    tagline: 'Deterministic agent orchestration, local speech-to-speech, and low-latency streaming.',
     features: ['FastAPI / Python Agents', 'Whisper & Speech Pipelines', 'Zero-Leak Memory'],
+    targetProjectId: null,
+    actionLabel: 'Discuss AI Architecture',
+    href: '#contact',
   },
   {
     num: '04',
     title: 'Full-Stack Web & Mobile Apps',
     tagline: 'Production-ready web & mobile frontends that integrate seamlessly with backend APIs.',
-    features: ['Modern React & Vite', 'React Native & Mobile', 'Dockerized Deployments'],
+    features: ['Modern React & Vite', 'TypeScript & REST APIs', 'Dockerized Deployments'],
+    targetProjectId: 'gig-flow',
+    actionLabel: 'View Gig Flow CRM Case',
+    href: '#projects',
   },
 ];
 
-export default function ServicesSection() {
+export default function ServicesSection({ onSelectProject }) {
   const [hoveredIdx, setHoveredIdx] = useState(null);
   const shouldReduceMotion = useReducedMotion();
 
+  const handleNavigate = (e, cap) => {
+    // If it's a project reference, smooth-scroll and trigger preview modal
+    if (cap.targetProjectId && onSelectProject) {
+      const proj = PROJECTS.find((p) => p.id === cap.targetProjectId);
+      if (proj) {
+        e.preventDefault();
+        const targetEl = document.getElementById('projects');
+        if (targetEl) {
+          targetEl.scrollIntoView({ behavior: 'smooth' });
+        }
+        // Open the modal after brief smooth-scroll kickoff
+        setTimeout(() => {
+          onSelectProject(proj);
+        }, 350);
+        return;
+      }
+    }
+
+    // Otherwise standard smooth anchor scroll
+    if (cap.href) {
+      e.preventDefault();
+      const targetEl = document.querySelector(cap.href);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <section
-      id="services"
-      aria-label="Services and Solutions"
+      id="capabilities"
+      aria-label="Engineering Capabilities and Experience"
       className="relative py-28 sm:py-36 bg-gradient-to-b from-[#0284c7] via-[#0369a1] to-[#0284c7] text-white overflow-hidden"
     >
-      {/* Decorative Diagonal Green Wildflower Hill Backdrop (Matching Screenshot 3) */}
+      {/* Anchor alias for backwards compatibility */}
+      <span id="services" className="sr-only" aria-hidden="true" />
+
+      {/* Decorative Diagonal Green Wildflower Hill Backdrop (Matching Reference) */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 bottom-0 h-[48%] overflow-hidden opacity-90 select-none z-0"
@@ -81,7 +125,7 @@ export default function ServicesSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
+        {/* Section Header: Personal, Engineering-Focused, No Corporate Agency Clichés */}
         <div className="mb-14 sm:mb-20 max-w-2xl">
           <motion.div
             initial={shouldReduceMotion ? false : { opacity: 0, y: 12 }}
@@ -89,7 +133,7 @@ export default function ServicesSection() {
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-xs font-mono text-white uppercase tracking-widest mb-4 font-bold"
           >
-            <span>SERVICES &amp; CAPABILITIES</span>
+            <span>CAPABILITIES &amp; EXPERIENCE</span>
           </motion.div>
 
           <motion.h2
@@ -98,48 +142,51 @@ export default function ServicesSection() {
             viewport={{ once: true }}
             className="text-4xl sm:text-6xl font-black tracking-tight text-white mb-4"
           >
-            Your Needs, <span className="font-condensed font-normal uppercase">Our Expertise</span>
+            Engineering Capabilities, <span className="font-condensed font-normal uppercase">Proven In Work</span>
           </motion.h2>
 
           <p className="text-base sm:text-lg text-sky-100/90 leading-relaxed text-pretty font-medium">
-            Architected for reliability. From interface fidelity to multi-tier state machines, every layer is built with high standards.
+            Architected with production discipline. From deterministic backend state machines and database scaling to AI pipelines and full-stack systems — click any focus area to inspect the implementation.
           </p>
         </div>
 
-        {/* Interactive Accordion Rows (Matching Screenshot 3) */}
+        {/* Interactive Capability Rows With Direct Click Navigation to Work */}
         <div className="border-t border-white/30 divide-y divide-white/25">
-          {SERVICES.map((srv, idx) => {
+          {CAPABILITIES.map((cap, idx) => {
             const isHovered = hoveredIdx === idx;
             return (
-              <motion.div
-                key={srv.num}
+              <motion.a
+                key={cap.num}
+                href={cap.href}
+                onClick={(e) => handleNavigate(e, cap)}
                 initial={shouldReduceMotion ? false : { opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.08, duration: 0.5 }}
                 onMouseEnter={() => setHoveredIdx(idx)}
                 onMouseLeave={() => setHoveredIdx(null)}
-                className="group relative py-7 sm:py-9 px-4 sm:px-6 rounded-3xl transition-all duration-300 hover:bg-white/15 hover:backdrop-blur-md cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-6"
+                aria-label={`${cap.title}: ${cap.actionLabel}`}
+                className="group relative py-7 sm:py-9 px-4 sm:px-6 rounded-3xl transition-all duration-300 hover:bg-white/15 hover:backdrop-blur-md cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-6 block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-nature-lime"
               >
                 {/* Number & Title */}
                 <div className="flex items-baseline gap-6 sm:gap-10">
                   <span className="font-mono text-base sm:text-lg font-bold text-sky-200 group-hover:text-nature-lime transition-colors">
-                    {srv.num}
+                    {cap.num}
                   </span>
                   <div>
                     <h3 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white group-hover:text-nature-lime transition-colors">
-                      {srv.title}
+                      {cap.title}
                     </h3>
                     <p className="text-sm text-sky-100/90 mt-1 max-w-xl group-hover:text-white transition-colors">
-                      {srv.tagline}
+                      {cap.tagline}
                     </p>
                   </div>
                 </div>
 
                 {/* Features & Action Button */}
-                <div className="flex items-center justify-between md:justify-end gap-6 sm:gap-8">
+                <div className="flex items-center justify-between md:justify-end gap-5 sm:gap-7">
                   <div className="hidden lg:flex items-center gap-4 text-xs font-mono font-bold text-sky-100">
-                    {srv.features.map((feat) => (
+                    {cap.features.map((feat) => (
                       <span key={feat} className="flex items-center gap-1.5">
                         <CheckCircle2 className="w-3.5 h-3.5 text-nature-lime" />
                         <span>{feat}</span>
@@ -147,12 +194,17 @@ export default function ServicesSection() {
                     ))}
                   </div>
 
-                  {/* Circular Arrow Button (Rotates 45deg on hover) */}
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/25 group-hover:bg-nature-lime backdrop-blur-md border border-white/40 group-hover:border-nature-lime flex items-center justify-center transition-all duration-300 shadow-md group-hover:shadow-[0_4px_20px_rgba(132,204,22,0.4)]">
+                  {/* Contextual Action Label (Shows on tablet/desktop) */}
+                  <span className="hidden sm:inline-flex items-center text-xs font-mono font-semibold uppercase tracking-wider text-sky-200 group-hover:text-nature-lime transition-colors">
+                    {cap.actionLabel}
+                  </span>
+
+                  {/* Circular Arrow Button (Rotates 45deg on hover, active state) */}
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/25 group-hover:bg-nature-lime backdrop-blur-md border border-white/40 group-hover:border-nature-lime flex items-center justify-center transition-all duration-300 shadow-md group-hover:shadow-[0_4px_20px_rgba(132,204,22,0.4)] flex-shrink-0">
                     <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:text-neutral-950 transition-all duration-300 group-hover:rotate-45" />
                   </div>
                 </div>
-              </motion.div>
+              </motion.a>
             );
           })}
         </div>

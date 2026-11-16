@@ -5,8 +5,8 @@ import { ArrowUpRight, Menu, X } from 'lucide-react';
 const NAV_LINKS = [
   { label: 'Home', href: '#hero' },
   { label: 'About', href: '#about' },
-  { label: 'Service', href: '#services' },
-  { label: 'Project', href: '#projects' },
+  { label: 'Capabilities', href: '#capabilities' },
+  { label: 'Work', href: '#projects' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -19,9 +19,9 @@ export default function CapsuleNav() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      const sections = ['hero', 'about', 'services', 'projects', 'contact'];
+      const sections = ['hero', 'about', 'capabilities', 'projects', 'contact'];
       for (const section of sections) {
-        const el = document.getElementById(section);
+        const el = document.getElementById(section) || (section === 'capabilities' ? document.getElementById('services') : null);
         if (el) {
           const rect = el.getBoundingClientRect();
           if (rect.top <= 160 && rect.bottom >= 160) {

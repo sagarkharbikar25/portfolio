@@ -28,8 +28,8 @@ export default function App() {
           {/* 02 // ABOUT & BENTO MATRIX: Light Bento, 3D Coral Sculpture & Chrome Ribbon */}
           <BentoMatrixSection />
 
-          {/* 03 // SERVICES: Cerulean Sky & Diagonal Wildflower Landscape with 01-04 Accordions */}
-          <ServicesSection />
+          {/* 03 // CAPABILITIES & EXPERIENCE: Cerulean Sky & Diagonal Wildflower Landscape with Interactive Links */}
+          <ServicesSection onSelectProject={setSelectedProject} />
 
           {/* 04 // PROJECTS: Asymmetric Staggered 2-Column Grid on Light Ground */}
           <ProjectsNeoSection onSelectProject={setSelectedProject} />
