@@ -12,10 +12,9 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          'vendor-three': ['three'],
-          'vendor-motion': ['gsap', 'lenis'],
+          'vendor-motion': ['framer-motion'],
         },
       },
     },
-  }
+  },
 });

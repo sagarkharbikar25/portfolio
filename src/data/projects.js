@@ -235,6 +235,7 @@ export function getDeckProjects() {
   return list.map((project, idx) => ({
     ...project,
     deckIndex: `${String(idx + 1).padStart(2, '0')} / ${total}`,
+    mcpUri: project.mcpUri || `resources://projects/${project.id}`,
     category: project.category || 'SYSTEM BUILD',
     headerAccent:
       project.headerAccent || HEADER_ACCENT_ROTATION[idx % HEADER_ACCENT_ROTATION.length],
