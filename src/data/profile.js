@@ -3,58 +3,80 @@ export const PROFILE = {
   shortMark: 'SK',
   domain: 'sagardev.me',
   role: 'Backend Developer & SDE · Full-Stack Capable',
-  tagline: 'Backend systems, engineered to hold under load.',
-  heroHeadlinePrefix: 'Architecting deterministic',
+  tagline: 'Computer Science undergraduate engineering deterministic backends and full-stack systems.',
+  heroHeadlinePrefix: 'Building reliable',
   heroHeadlineAccent: 'Backends & Systems',
   heroSub:
-    'I specialize in backend engineering: deterministic state machines, role-based APIs, audit trails, and scaled PostgreSQL/Redis architectures—with strong full-stack capability across React and React Native. CS undergrad (CGPA 8.70) with production SaaS experience.',
-  availability: 'Open to Backend, SDE, and Full-Stack roles, remote or India-based.',
+    'Computer Science undergrad at JDCOEM (CGPA 8.70) with production SaaS internship experience at 4iBiz. Specializing in backend engineering: RESTful APIs, role-based access control, PostgreSQL data modeling, and FastAPI services—with hands-on full-stack skills in React and React Native.',
+  availability: 'Open to Software Development (SDE), Backend, and Full-Stack Engineering Roles.',
   email: 'sagarkharbikar25@gmail.com',
+  phone: '+91 8208389305',
+  location: 'Nagpur, Maharashtra, India',
   github: 'https://github.com/sagarkharbikar25',
   linkedin: 'https://www.linkedin.com/in/sagar-kharbikar',
   resumeUrl: '/assets/resume/Sagar_Kharbikar_Resume.pdf',
   resumeFileName: 'Sagar_Kharbikar_Resume.pdf',
-  educationSummary: 'B.Tech CSE · JDCOEM Nagpur · CGPA 8.70 (2024 – 2028)',
+  educationSummary: 'B.Tech Computer Science & Engineering · JDCOEM Nagpur · CGPA 8.70 (2024 – 2028)',
 };
 
-export const HERO_METRICS = [
+export const REAL_METRICS = [
   {
-    id: '4ibiz',
-    tag: 'PRODUCTION INTERNSHIP',
-    label: 'Full-Stack & React Native',
-    value: '4iBiz',
-    unit: 'Jun – Aug 2026',
-    tone: 'emerald',
+    id: 'cgpa',
+    value: '8.70',
+    unit: 'CGPA',
+    label: 'Academic Standing',
+    detail: 'B.Tech CSE at JD College of Engineering & Management (2024 – 2028)',
   },
   {
-    id: 'mini-project',
-    tag: '1ST PRIZE · COLLEGE LEVEL',
-    label: 'Mini Project Competition',
+    id: 'award',
     value: '1st',
-    unit: 'JDCOEM · 2025',
-    tone: 'gold',
+    unit: 'Prize',
+    label: 'Mini Project Competition',
+    detail: 'Digital Document Service Portal with RBAC & QR verification (2026)',
   },
   {
     id: 'hackathon',
-    tag: 'WIDE SOFTECH · PCE NAGPUR',
-    label: 'National Level Hackathon',
     value: 'Top 10',
-    unit: 'of 84+ Teams',
-    tone: 'cyan',
+    unit: '/ 84+ Teams',
+    label: 'National Level Hackathon',
+    detail: 'WideSoftech · Priyadarshini College of Engineering (Mar 2026)',
   },
   {
-    id: 'cgpa',
-    tag: 'JDCOEM B.TECH CSE',
-    label: 'Cumulative GPA',
-    value: '8.70',
-    unit: '2024 – 2028',
-    tone: 'gold',
+    id: 'internship',
+    value: '4iBiz',
+    unit: 'SaaS Intern',
+    label: 'Production Experience',
+    detail: 'Engineered backend features & migrated mobile app to React Native (Jun – Aug 2026)',
   },
 ];
 
-export const OBSERVATORY_CHAPTERS = [
-  { id: 'hero', code: 'CH.00', label: 'IGNITION', summary: 'Core & Metrics' },
-  { id: 'projects', code: 'CH.01', label: 'INSTRUMENTS', summary: 'Production Systems' },
-  { id: 'telemetry', code: 'CH.02', label: 'TELEMETRY', summary: 'Console & Record' },
-  { id: 'contact', code: 'CH.03', label: 'SIGNAL', summary: 'Direct Contact' },
+export const CERTIFICATIONS = [
+  {
+    title: 'Oracle Agentic AI Certified Foundations Associate',
+    issuer: 'Oracle',
+    date: 'Jul 2026',
+  },
+  {
+    title: 'Cyber Security and Privacy',
+    issuer: 'NPTEL · IIT Madras',
+    date: '2026',
+  },
+  {
+    title: 'Develop Serverless Applications on Cloud Run',
+    issuer: 'Google Cloud Skill Badge',
+    date: '2026',
+  },
+];
+
+export const LEADERSHIP = [
+  {
+    role: 'Vice President',
+    organization: 'Hack With India – JDCOEM',
+    description: 'Leading campus developer community initiatives, hackathons, and technical workshops.',
+  },
+  {
+    role: 'Content Writer',
+    organization: 'Schollogma CSE Forum',
+    description: 'Authored technical articles on computing and software development (2025).',
+  },
 ];

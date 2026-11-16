@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { Star, ShieldCheck, TrendingUp, Users, Zap, CheckCircle2 } from 'lucide-react';
+import { Award, ShieldCheck, Trophy, GraduationCap, CheckCircle2 } from 'lucide-react';
 import SkillsRibbon from './SkillsRibbon';
 import { PROFILE } from '../data/profile';
 
@@ -12,7 +12,7 @@ export default function BentoMatrixSection() {
   return (
     <section
       id="about"
-      aria-label="About Us and Capabilities Matrix"
+      aria-label="About Me and Experience Matrix"
       className="relative py-24 sm:py-32 bg-[#f8fafc] text-slate-900 overflow-hidden border-t border-slate-200/60"
     >
       {/* Background ambient lighting */}
@@ -23,17 +23,17 @@ export default function BentoMatrixSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
+        {/* Section Header: ABOUT ME (Honest & Personal) */}
         <div className="mb-14 sm:mb-20 max-w-3xl">
           <motion.div
             initial={shouldReduceMotion ? false : { opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease: EASE_OUT }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-200/80 border border-slate-300 text-xs font-mono text-slate-700 uppercase tracking-widest mb-6 font-semibold"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-200/80 border border-slate-300 text-xs font-mono text-slate-700 uppercase tracking-widest mb-6 font-bold"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-            <span>ABOUT US</span>
+            <span>ABOUT ME</span>
           </motion.div>
 
           <motion.div
@@ -45,25 +45,25 @@ export default function BentoMatrixSection() {
           >
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight text-slate-800">
               <span className="font-condensed uppercase tracking-normal block sm:inline mr-3 text-slate-900">
-                Our focus is simple
+                Core CS Foundations
               </span>
               <span className="font-display font-black text-emerald-600 block sm:inline">
-                Design to convert
+                Production SaaS Experience
               </span>
             </h2>
             <p className="pt-4 text-base sm:text-lg text-slate-600 font-normal leading-relaxed text-pretty">
-              We bridge deterministic backend systems with high-craft interfaces to engineer platforms that stand under load and convert visitors into long-term partners.
+              Computer Science undergraduate at JDCOEM (CGPA 8.70) with production SaaS internship experience at 4iBiz Techno-Solutions. Dedicated to engineering deterministic backend state machines, secure role-based APIs, and scalable full-stack applications.
             </p>
           </motion.div>
         </div>
 
-        {/* Bento Grid (Asymmetric Layout matching Screenshot 2026-11-16 134512.png) */}
+        {/* Bento Grid: 100% Real, Honest & Verified Resume Data */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-6">
           
           {/* Left Column (Span 7) */}
           <div className="md:col-span-7 flex flex-col gap-5 sm:gap-6">
             
-            {/* Top Card: 40+ PARTNERS with Circular Avatar Stack */}
+            {/* Top Card: National Level Hackathon & Community Leadership */}
             <motion.div
               initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -73,37 +73,34 @@ export default function BentoMatrixSection() {
             >
               <div className="space-y-1">
                 <span className="text-xs font-mono uppercase tracking-wider text-slate-500 font-bold">
-                  Global Ecosystem
+                  NATIONAL COMPETITION &amp; CAMPUS LEADERSHIP
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-condensed tracking-wide text-slate-900">
-                  40+ COLLABORATORS &amp; PARTNERS
+                  TOP 10 OF 84+ TEAMS
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600">
-                  Open-source contributors, client teams &amp; hackathon networks.
+                  National Hackathon (WideSoftech · PCE) &amp; Vice President at Hack With India – JDCOEM.
                 </p>
               </div>
 
-              {/* Avatar Pile */}
+              {/* Leadership Badges */}
               <div className="flex items-center -space-x-3">
-                <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-rose-500 to-orange-400 ring-2 ring-white flex items-center justify-center font-bold text-xs text-white shadow-md">
-                  JD
+                <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-emerald-600 to-teal-400 ring-2 ring-white flex items-center justify-center font-bold text-xs text-white shadow-md" title="Hack With India">
+                  HWI
                 </div>
-                <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-sky-500 to-indigo-500 ring-2 ring-white flex items-center justify-center font-bold text-xs text-white shadow-md">
-                  AK
+                <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-sky-600 to-indigo-500 ring-2 ring-white flex items-center justify-center font-bold text-xs text-white shadow-md" title="JDCOEM CSE">
+                  CSE
                 </div>
-                <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-400 ring-2 ring-white flex items-center justify-center font-bold text-xs text-white shadow-md">
-                  RS
-                </div>
-                <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-amber-400 to-yellow-600 ring-2 ring-white flex items-center justify-center font-bold text-xs text-white shadow-md">
-                  +37
+                <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-amber-500 to-yellow-600 ring-2 ring-white flex items-center justify-center font-bold text-xs text-white shadow-md" title="1st Prize">
+                  #1
                 </div>
               </div>
             </motion.div>
 
-            {/* Sub-grid: 90% ROI card & $2.5M Revenue Card */}
+            {/* Sub-grid: 8.70 CGPA Academic Standing & 1st Prize Award */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
               
-              {/* Card 2: 90% ROI Stat */}
+              {/* Card 2: 8.70 CGPA Academic Excellence */}
               <motion.div
                 initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -113,27 +110,27 @@ export default function BentoMatrixSection() {
               >
                 <div className="flex items-center justify-between mb-4">
                   <span className="p-2.5 rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-100">
-                    <TrendingUp className="w-5 h-5" />
+                    <GraduationCap className="w-5 h-5" />
                   </span>
                   <span className="text-[11px] font-mono text-slate-500 font-bold uppercase tracking-widest">
-                    ROI METRIC
+                    ACADEMIC RECORD
                   </span>
                 </div>
 
                 <div>
                   <div className="font-condensed text-5xl sm:text-6xl text-slate-900 font-black tracking-tight mb-2">
-                    90%
+                    8.70
                   </div>
                   <h4 className="text-sm font-bold text-slate-900 mb-1 leading-snug">
-                    Earn back on your investment within 30 days
+                    B.Tech Computer Science &amp; Engineering
                   </h4>
                   <p className="text-xs text-slate-600">
-                    Return on investment through automated workflows &amp; low latency.
+                    JD College of Engineering &amp; Management, Nagpur (2024 – 2028).
                   </p>
                 </div>
               </motion.div>
 
-              {/* Card 3: $2.5M Revenue Card with Live Green Beacon */}
+              {/* Card 3: 1st Prize Competition Winner */}
               <motion.div
                 initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -142,22 +139,22 @@ export default function BentoMatrixSection() {
                 className="bg-white rounded-3xl p-6 sm:p-7 flex flex-col justify-between border border-slate-200/90 shadow-[0_8px_24px_rgba(15,23,42,0.04)] hover:border-emerald-500/40 transition-colors"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-[10px] font-bold text-emerald-700">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
-                    <span>AVAILABLE FOR ANY TIME</span>
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-[10px] font-bold text-amber-800">
+                    <Trophy className="w-3.5 h-3.5 text-amber-600" />
+                    <span>COLLEGE COMPETITION</span>
                   </div>
                 </div>
 
                 <div>
                   <div className="flex items-baseline gap-1 font-condensed text-5xl sm:text-6xl text-slate-900 font-black tracking-tight mb-2">
-                    <span>$2.5</span>
-                    <span className="text-3xl sm:text-4xl text-emerald-600 font-black">M+</span>
+                    <span>1st</span>
+                    <span className="text-3xl sm:text-4xl text-amber-500 font-black">Prize</span>
                   </div>
                   <h4 className="text-sm font-bold text-slate-900 mb-1 leading-snug">
-                    Through custom-tailored backend systems
+                    Digital Document Service Portal (2026)
                   </h4>
                   <p className="text-xs text-slate-600">
-                    Client transaction volume &amp; scaled production throughput.
+                    Architected RBAC approval state machine with instant QR verification.
                   </p>
                 </div>
               </motion.div>
@@ -165,13 +162,13 @@ export default function BentoMatrixSection() {
             </div>
           </div>
 
-          {/* Right Column (Span 5): Large Hero Bento Card with 3D Tactile Sculpture (Vivid Azure Blue) */}
+          {/* Right Column (Span 5): Large Hero Bento Card - 4iBiz Production Internship Experience */}
           <motion.div
             initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.96 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65, delay: 0.2, ease: EASE_OUT }}
-            className="md:col-span-5 rounded-3xl bg-gradient-to-br from-sky-500 via-sky-600 to-indigo-700 p-7 sm:p-8 flex flex-col justify-between relative overflow-hidden shadow-2xl border border-sky-400/40 text-white group"
+            className="md:col-span-5 rounded-3xl bg-gradient-to-br from-sky-600 via-sky-700 to-indigo-900 p-7 sm:p-8 flex flex-col justify-between relative overflow-hidden shadow-2xl border border-sky-400/40 text-white group"
           >
             {/* Atmospheric light glow */}
             <div
@@ -179,74 +176,48 @@ export default function BentoMatrixSection() {
               className="absolute -top-16 -right-16 w-64 h-64 bg-white/20 rounded-full blur-3xl pointer-events-none"
             />
 
-            {/* Top Header & Star Rating */}
+            {/* Top Header: Real Internship Label */}
             <div className="relative z-10 flex items-center justify-between">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-xs font-semibold text-white">
                 <ShieldCheck className="w-4 h-4 text-emerald-300" />
-                <span>VERIFIED PRODUCER</span>
+                <span>4IBIZ TECHNO-SOLUTIONS</span>
               </div>
               <div className="text-right">
-                <span className="font-condensed text-3xl sm:text-4xl text-white font-black tracking-tight">
-                  5.0 / 5
+                <span className="font-mono text-xs text-sky-200 uppercase font-semibold">
+                  Jun – Aug 2026
                 </span>
               </div>
             </div>
 
-            {/* Center: Tactile 3D Sponge / Coral Organic Sculpture (Exact match to screenshot 2) */}
-            <div className="relative z-10 my-8 flex items-center justify-center">
-              <div className="relative w-48 h-48 sm:w-56 sm:h-56 flex items-center justify-center">
-                <svg
-                  viewBox="0 0 200 200"
-                  className="w-full h-full drop-shadow-[0_20px_35px_rgba(0,0,0,0.35)] animate-float-slow"
-                >
-                  <defs>
-                    <radialGradient id="sponge-grad-light" cx="40%" cy="35%" r="65%">
-                      <stop offset="0%" stopColor="#86EFAC" />
-                      <stop offset="35%" stopColor="#22C55E" />
-                      <stop offset="70%" stopColor="#15803D" />
-                      <stop offset="100%" stopColor="#052E16" />
-                    </radialGradient>
-                    <filter id="sponge-texture-light" x="0%" y="0%" width="100%" height="100%">
-                      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" result="noise" />
-                      <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" xChannelSelector="R" yChannelSelector="G" />
-                    </filter>
-                  </defs>
-                  {/* Organic tactile sponge form */}
-                  <path
-                    d="M 100,20 C 145,18 180,50 182,95 C 185,140 150,180 105,182 C 60,185 18,145 20,100 C 22,55 55,22 100,20 Z"
-                    fill="url(#sponge-grad-light)"
-                    filter="url(#sponge-texture-light)"
-                  />
-                  {/* Inner depth stipples */}
-                  <circle cx="75" cy="65" r="9" fill="#14532D" opacity="0.6" />
-                  <circle cx="120" cy="80" r="12" fill="#14532D" opacity="0.6" />
-                  <circle cx="95" cy="125" r="14" fill="#052E16" opacity="0.7" />
-                  <circle cx="140" cy="130" r="8" fill="#14532D" opacity="0.5" />
-                  <circle cx="60" cy="110" r="10" fill="#166534" opacity="0.55" />
-                </svg>
+            {/* Center: Real Technical Accomplishments */}
+            <div className="relative z-10 my-6 space-y-3">
+              <h3 className="font-condensed text-3xl sm:text-4xl font-black text-white tracking-wide">
+                FULL STACK DEVELOPER INTERN
+              </h3>
+              <p className="text-xs sm:text-sm text-sky-100/90 leading-relaxed">
+                Engineered features for a production gym-management SaaS platform across backend REST services and frontend modules.
+              </p>
 
-                {/* Overlaid White Frosted Glass Badge */}
-                <div className="absolute -bottom-2 bg-white/95 backdrop-blur-xl border border-white/80 px-4 py-2 rounded-2xl shadow-xl flex items-center gap-2 text-slate-900">
-                  <div className="flex text-amber-400">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-amber-400" />
-                    ))}
-                  </div>
-                  <span className="text-[11px] font-bold tracking-tight uppercase">
-                    WORLDWIDE TRUST
-                  </span>
+              <div className="space-y-2 pt-2">
+                <div className="flex items-start gap-2 text-xs text-sky-100">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-300 shrink-0 mt-0.5" />
+                  <span>Migrated FYTRACK mobile application from Flutter to React Native with full feature parity.</span>
+                </div>
+                <div className="flex items-start gap-2 text-xs text-sky-100">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-300 shrink-0 mt-0.5" />
+                  <span>Executed 100+ manual tests; identified and resolved 15+ high-severity bugs.</span>
                 </div>
               </div>
             </div>
 
-            {/* Bottom Card Copy */}
-            <div className="relative z-10 pt-2 border-t border-white/20">
-              <h4 className="text-lg font-bold text-white mb-1">
-                Engineering Integrity
-              </h4>
-              <p className="text-xs sm:text-sm text-sky-100/90 leading-relaxed">
-                Zero regressions, strict schema validation, and deterministic state guarantees across every deliverable.
-              </p>
+            {/* Bottom Card Badges: Real Certifications */}
+            <div className="relative z-10 pt-4 border-t border-white/20 flex flex-wrap items-center gap-2">
+              <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-[11px] font-bold text-white">
+                Oracle Agentic AI Associate
+              </span>
+              <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-[11px] font-bold text-white">
+                NPTEL IIT Madras Cyber Security
+              </span>
             </div>
           </motion.div>
 

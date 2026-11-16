@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowDownRight, FileText, Star, Sparkles } from 'lucide-react';
+import { ArrowDownRight, FileText, Sparkles, Award } from 'lucide-react';
 import { PROFILE } from '../data/profile';
 
 const EASE_OUT = [0.22, 1, 0.36, 1];
@@ -24,7 +24,7 @@ export default function HeroNeoSection() {
         className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#f8fafc] via-[#f8fafc]/60 to-transparent z-10"
       />
 
-      {/* Stylized Natural Undulating Rolling Hills Backdrop (Vibrant Greens from Reference) */}
+      {/* Stylized Natural Undulating Rolling Hills Backdrop */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 bottom-0 h-[52vh] min-h-[380px] overflow-hidden opacity-95 select-none"
@@ -36,17 +36,14 @@ export default function HeroNeoSection() {
           preserveAspectRatio="none"
           className="w-full h-full object-cover"
         >
-          {/* Back distant hill (soft misty moss green) */}
           <path
             d="M0,320 C320,240 580,360 880,260 C1160,180 1340,240 1440,280 L1440,600 L0,600 Z"
             fill="url(#hill-back-light)"
           />
-          {/* Mid hill ridge */}
           <path
             d="M0,380 C260,310 520,430 840,340 C1140,260 1320,350 1440,330 L1440,600 L0,600 Z"
             fill="url(#hill-mid-light)"
           />
-          {/* Foreground rolling slope */}
           <path
             d="M0,450 C360,380 640,490 1020,420 C1280,370 1380,420 1440,410 L1440,600 L0,600 Z"
             fill="url(#hill-front-light)"
@@ -78,7 +75,7 @@ export default function HeroNeoSection() {
             initial={shouldReduceMotion ? false : { opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: EASE_OUT }}
-            className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/80 backdrop-blur-md border border-slate-300/80 text-xs font-semibold text-slate-800 shadow-sm"
+            className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/85 backdrop-blur-md border border-slate-300 text-xs font-semibold text-slate-800 shadow-sm"
           >
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
             <span>Available for Backend, SDE &amp; Full-Stack Roles</span>
@@ -134,7 +131,7 @@ export default function HeroNeoSection() {
           </div>
         </div>
 
-        {/* Bottom Dual Column: Bio on Left, Frosted Testimonial Card on Right */}
+        {/* Bottom Dual Column: Bio on Left, Real Verified Credential Card on Right */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end pb-4">
           
           {/* Left Column: Role, Bio & CTAs */}
@@ -169,43 +166,44 @@ export default function HeroNeoSection() {
             </div>
           </motion.div>
 
-          {/* Right Column: Floating Frosted Glass Testimonial Card (Matches Reference Screenshot) */}
+          {/* Right Column: Real Verified 4iBiz Experience & Award Card (100% Real from Resume) */}
           <motion.div
             initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.45, duration: 0.6, ease: EASE_OUT }}
             className="md:col-span-5"
           >
-            <div className="bg-white/95 backdrop-blur-xl rounded-3xl p-5 sm:p-6 shadow-[0_20px_45px_rgba(15,23,42,0.08)] border border-white relative overflow-hidden group hover:border-nature-lime/40 transition-colors">
+            <div className="bg-white/95 backdrop-blur-xl rounded-3xl p-5 sm:p-6 shadow-[0_20px_45px_rgba(15,23,42,0.08)] border border-slate-200/90 relative overflow-hidden group hover:border-emerald-500/40 transition-colors">
               <div
                 aria-hidden="true"
-                className="absolute -right-8 -top-8 w-28 h-28 bg-nature-lime/20 rounded-full blur-2xl"
+                className="absolute -right-8 -top-8 w-28 h-28 bg-emerald-500/10 rounded-full blur-2xl"
               />
 
-              {/* Star Rating */}
-              <div className="flex items-center gap-1 mb-3 text-amber-400">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-amber-400" />
-                ))}
-                <span className="ml-2 text-xs font-bold text-slate-900 font-mono">5.0 / 5.0</span>
+              {/* Real Verified Standing Badge */}
+              <div className="flex items-center justify-between mb-3">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-bold font-mono">
+                  <Award className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>1ST PRIZE · MINI PROJECT (2026)</span>
+                </div>
+                <span className="text-xs font-bold text-slate-900 font-mono">CGPA 8.70</span>
               </div>
 
-              {/* Quote */}
-              <p className="text-xs sm:text-sm text-slate-700 italic leading-relaxed mb-4">
-                "Sagar delivers robust, deterministic backends and clean user interfaces. His ability to build production-grade workflows under tight deadlines is outstanding."
+              {/* Honest Experience Summary */}
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed mb-4 font-medium">
+                "Engineered full-stack features for a gym-management SaaS at 4iBiz, migrated the FYTRACK mobile app to React Native, and built an RBAC approval state machine awarded 1st Prize."
               </p>
 
-              {/* Author Info */}
-              <div className="flex items-center gap-3 pt-2 border-t border-slate-100">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-300 ring-2 ring-slate-100 flex items-center justify-center text-xs font-bold text-neutral-900 shadow-sm">
-                  TW
+              {/* Real Organization Info */}
+              <div className="flex items-center gap-3 pt-3 border-t border-slate-100">
+                <div className="w-10 h-10 rounded-full bg-slate-900 text-nature-lime font-display font-extrabold flex items-center justify-center text-xs shadow-sm">
+                  4iB
                 </div>
                 <div>
                   <h3 className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
-                    Theresa Webb
+                    4iBiz Techno-Solutions Pvt. Ltd.
                   </h3>
                   <p className="text-[11px] text-slate-500 font-medium">
-                    Full Stack Lead · Engineering Partner
+                    Full Stack Developer Intern · Remote (Jun – Aug 2026)
                   </p>
                 </div>
               </div>

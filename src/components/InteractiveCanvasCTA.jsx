@@ -131,7 +131,7 @@ export default function InteractiveCanvasCTA() {
 
         {/* Headline */}
         <h2 className="text-3xl sm:text-5xl md:text-6xl font-light text-neutral-200 tracking-tight leading-tight mb-8">
-          Start your project with{' '}
+          Have an engineering opportunity? Connect with{' '}
           <span className="font-condensed font-normal uppercase text-white block sm:inline">
             {PROFILE.name}
           </span>

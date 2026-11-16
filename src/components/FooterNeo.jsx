@@ -26,22 +26,22 @@ export default function FooterNeo() {
         {/* Top & Middle Grid */}
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
           
-          {/* Left Column: Value Statement */}
+          {/* Left Column: Authentic Career Statement */}
           <div className="md:col-span-5 space-y-4">
             <span className="inline-block text-xs font-mono font-bold uppercase tracking-wider text-[#064E3B] bg-white/40 px-3 py-1 rounded-full">
-              LET'S COLLABORATE
+              LET'S CONNECT
             </span>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-[#064E3B] leading-tight text-pretty">
-              Ready to turn your vision into world-class digital systems? Let's discuss your project today.
+              Building deterministic backend systems and scalable full-stack applications.
             </h3>
             <p className="text-sm font-medium text-[#064E3B]/80 max-w-md">
-              Available for full-time SDE roles, backend engineering contracts, and full-stack builds worldwide.
+              Seeking Software Development Engineer (SDE), Backend, and Full-Stack Engineering roles. Available remote or on-site across India.
             </p>
           </div>
 
-          {/* Middle Column: Direct Coordinates */}
+          {/* Middle Column: Direct Coordinates from Resume */}
           <div className="md:col-span-3 space-y-3 text-sm font-semibold text-[#064E3B]">
-            <span className="text-xs font-mono uppercase tracking-wider text-[#064E3B]/70 block">
+            <span className="text-xs font-mono uppercase tracking-wider text-[#064E3B]/70 block font-bold">
               LOCATION &amp; CONTACT
             </span>
             <p className="leading-snug">
@@ -50,10 +50,13 @@ export default function FooterNeo() {
             <p>
               <a
                 href={`mailto:${PROFILE.email}`}
-                className="underline hover:text-black transition-colors"
+                className="underline hover:text-black transition-colors font-mono text-xs sm:text-sm"
               >
                 {PROFILE.email}
               </a>
+            </p>
+            <p className="font-mono text-xs">
+              +91 8208389305
             </p>
             <p className="text-xs text-[#064E3B]/80 pt-1">
               {PROFILE.educationSummary}
