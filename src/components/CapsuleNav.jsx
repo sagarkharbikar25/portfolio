@@ -37,97 +37,104 @@ export default function CapsuleNav() {
   }, []);
 
   return (
-    <header className="fixed top-5 inset-x-0 z-50 flex justify-center px-4 pointer-events-none">
-      <motion.nav
-        initial={{ y: -24, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        aria-label="Primary Navigation"
-        className={`pointer-events-auto flex items-center justify-between gap-3 sm:gap-6 px-3.5 sm:px-5 py-2 rounded-full transition-all duration-300 ${
-          scrolled
-            ? 'bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_12px_36px_rgba(15,23,42,0.08)]'
-            : 'bg-white/80 backdrop-blur-md border border-slate-200/80 shadow-[0_8px_24px_rgba(15,23,42,0.05)]'
-        }`}
-      >
-        {/* Brand / Home Anchor */}
+    <>
+      {/* Top-Left Modern Brand Wordmark (Matching NEXORA in Reference) */}
+      <div className="fixed top-6 left-6 sm:left-10 z-50 pointer-events-auto">
         <a
           href="#hero"
-          className="flex items-center gap-2 pl-2 pr-1 text-sm font-bold tracking-tight text-slate-900 hover:text-nature-lime transition-colors focus-visible:rounded-full"
+          className="group flex items-center gap-2 focus-visible:outline-none"
         >
-          <span className="w-2.5 h-2.5 rounded-full bg-nature-lime shadow-[0_0_8px_#84CC16]" />
-          <span className="font-display font-black tracking-wide">SAGAR</span>
+          <span className="font-display font-black text-2xl sm:text-3xl tracking-wider text-emerald-300 drop-shadow-[0_2px_12px_rgba(52,211,153,0.4)] group-hover:text-white transition-colors">
+            SAGAR
+          </span>
+          <span className="w-2 h-2 rounded-full bg-nature-lime shadow-[0_0_8px_#84CC16]" />
         </a>
+      </div>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-1 sm:gap-2">
-          {NAV_LINKS.map((link) => {
-            const isActive = activeSection === link.href.slice(1);
-            return (
+      {/* Floating Capsule Nav (Matching Reference Top Center/Right) */}
+      <header className="fixed top-5 right-6 sm:right-10 md:inset-x-0 z-50 flex justify-end md:justify-center px-4 pointer-events-none">
+        <motion.nav
+          initial={{ y: -24, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          aria-label="Primary Navigation"
+          className={`pointer-events-auto flex items-center gap-2 sm:gap-6 px-3 sm:px-5 py-2 rounded-full transition-all duration-300 ${
+            scrolled
+              ? 'bg-neutral-900/85 backdrop-blur-xl border border-white/20 shadow-[0_12px_36px_rgba(0,0,0,0.3)]'
+              : 'bg-white/25 backdrop-blur-md border border-white/35 shadow-[0_8px_24px_rgba(0,0,0,0.15)]'
+          }`}
+        >
+          {/* Desktop Navigation Links */}
+          <div className="hidden md:flex items-center gap-1 sm:gap-2">
+            {NAV_LINKS.map((link) => {
+              const isActive = activeSection === link.href.slice(1);
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className={`relative px-3.5 py-1.5 text-xs uppercase tracking-wider font-semibold rounded-full transition-colors ${
+                    isActive
+                      ? 'text-white font-bold'
+                      : 'text-white/80 hover:text-white'
+                  }`}
+                >
+                  {isActive && (
+                    <motion.span
+                      layoutId="capsule-active-pill"
+                      className="absolute inset-0 bg-white/20 rounded-full -z-10 shadow-sm"
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                  {link.label}
+                </a>
+              );
+            })}
+          </div>
+
+          {/* Primary Action Button ("Let's Collaborate") */}
+          <div className="flex items-center gap-2">
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 text-xs sm:text-sm font-bold text-neutral-950 bg-nature-lime hover:bg-nature-lime-light rounded-full transition-transform active:scale-95 shadow-[0_2px_14px_rgba(132,204,22,0.4)]"
+            >
+              <span>Let's Collaborate</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
+
+            {/* Mobile hamburger trigger */}
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-1.5 rounded-full text-white hover:bg-white/20 transition-colors focus-visible:rounded-full"
+              aria-label="Toggle Navigation Menu"
+              aria-expanded={mobileMenuOpen}
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
+        </motion.nav>
+
+        {/* Mobile Drawer */}
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: -10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: -10 }}
+            className="pointer-events-auto absolute top-20 right-6 w-64 bg-neutral-950/95 backdrop-blur-2xl border border-white/20 rounded-3xl p-5 shadow-2xl flex flex-col gap-3 md:hidden z-50 text-white"
+          >
+            {NAV_LINKS.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className={`relative px-3.5 py-1.5 text-xs uppercase tracking-wider font-semibold rounded-full transition-colors ${
-                  isActive
-                    ? 'text-slate-950 font-bold'
-                    : 'text-slate-600 hover:text-slate-950'
-                }`}
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-4 py-2.5 rounded-xl text-sm font-semibold text-neutral-200 hover:text-white hover:bg-white/10 transition-colors"
               >
-                {isActive && (
-                  <motion.span
-                    layoutId="capsule-active-pill"
-                    className="absolute inset-0 bg-slate-100 rounded-full -z-10 shadow-sm"
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
-                )}
                 {link.label}
               </a>
-            );
-          })}
-        </div>
-
-        {/* Primary Action Button ("Let's Collaborate") */}
-        <div className="flex items-center gap-2">
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs sm:text-sm font-bold text-neutral-950 bg-nature-lime hover:bg-nature-lime-light rounded-full transition-transform active:scale-95 shadow-[0_2px_12px_rgba(132,204,22,0.35)]"
-          >
-            <span>Let's Collaborate</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
-          </a>
-
-          {/* Mobile hamburger trigger */}
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-1.5 rounded-full text-slate-700 hover:bg-slate-100 transition-colors focus-visible:rounded-full"
-            aria-label="Toggle Navigation Menu"
-            aria-expanded={mobileMenuOpen}
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
-        </div>
-      </motion.nav>
-
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: -10 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.95, y: -10 }}
-          className="pointer-events-auto absolute top-20 w-[calc(100%-2rem)] max-w-sm bg-white/95 backdrop-blur-2xl border border-slate-200 rounded-3xl p-5 shadow-2xl flex flex-col gap-3 md:hidden z-50 text-slate-900"
-        >
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:text-slate-950 hover:bg-slate-100 transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
-        </motion.div>
-      )}
-    </header>
+            ))}
+          </motion.div>
+        )}
+      </header>
+    </>
   );
 }
