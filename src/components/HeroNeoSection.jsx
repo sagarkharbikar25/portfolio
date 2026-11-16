@@ -77,19 +77,19 @@ export default function HeroNeoSection() {
               initial={shouldReduceMotion ? false : { opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: EASE_OUT }}
-              className="font-condensed text-7xl sm:text-9xl md:text-[11rem] lg:text-[14rem] xl:text-[16rem] leading-[0.82] tracking-tight uppercase text-white drop-shadow-[0_8px_36px_rgba(0,0,0,0.6)] select-none font-black"
+              className="font-condensed text-5xl min-[380px]:text-6xl sm:text-8xl md:text-[10rem] lg:text-[13rem] xl:text-[15rem] leading-[0.84] tracking-tight uppercase text-white drop-shadow-[0_8px_36px_rgba(0,0,0,0.6)] select-none font-black"
             >
               BACKEND
             </motion.h1>
           </div>
 
           {/* Bottom Line: DEVELOPER (Centered) */}
-          <div className="overflow-hidden -mt-2 sm:-mt-6 md:-mt-10 lg:-mt-14">
+          <div className="overflow-hidden -mt-1 sm:-mt-4 md:-mt-8 lg:-mt-12">
             <motion.h2
               initial={shouldReduceMotion ? false : { opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15, duration: 0.8, ease: EASE_OUT }}
-              className="font-condensed text-7xl sm:text-9xl md:text-[11rem] lg:text-[14rem] xl:text-[16rem] leading-[0.82] tracking-tight uppercase text-white drop-shadow-[0_8px_36px_rgba(0,0,0,0.6)] select-none font-black"
+              className="font-condensed text-5xl min-[380px]:text-6xl sm:text-8xl md:text-[10rem] lg:text-[13rem] xl:text-[15rem] leading-[0.84] tracking-tight uppercase text-white drop-shadow-[0_8px_36px_rgba(0,0,0,0.6)] select-none font-black"
             >
               DEVELOPER
             </motion.h2>

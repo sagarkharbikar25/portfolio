@@ -38,9 +38,19 @@ export default function InteractiveCanvasCTA() {
       mouse.targetY = -1000;
     };
 
+    const handleTouchMove = (e) => {
+      if (e.touches && e.touches[0]) {
+        const rect = canvas.getBoundingClientRect();
+        mouse.targetX = e.touches[0].clientX - rect.left;
+        mouse.targetY = e.touches[0].clientY - rect.top;
+      }
+    };
+
     window.addEventListener('resize', handleResize);
     canvas.addEventListener('mousemove', handleMouseMove);
     canvas.addEventListener('mouseleave', handleMouseLeave);
+    canvas.addEventListener('touchmove', handleTouchMove, { passive: true });
+    canvas.addEventListener('touchend', handleMouseLeave);
 
     const render = () => {
       ctx.clearRect(0, 0, width, height);
@@ -107,6 +117,8 @@ export default function InteractiveCanvasCTA() {
       window.removeEventListener('resize', handleResize);
       canvas.removeEventListener('mousemove', handleMouseMove);
       canvas.removeEventListener('mouseleave', handleMouseLeave);
+      canvas.removeEventListener('touchmove', handleTouchMove);
+      canvas.removeEventListener('touchend', handleMouseLeave);
       if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
   }, [shouldReduceMotion]);
