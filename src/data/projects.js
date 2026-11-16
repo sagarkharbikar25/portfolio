@@ -3,7 +3,7 @@ export const MAX_PROJECTS = 6;
 export const PROJECTS = [
   {
     id: 'document-portal',
-    index: '01 / 04',
+    index: '01 / 03',
     category: 'ERP STATE MACHINE',
     headerAccent: 'gold',
     title: 'Digital Document Service Portal',
@@ -62,7 +62,7 @@ export const PROJECTS = [
   },
   {
     id: 'gig-flow',
-    index: '02 / 04',
+    index: '02 / 03',
     category: 'RBAC LEAD CRM',
     headerAccent: 'emerald',
     title: 'Gig Flow — Smart Leads Dashboard',
@@ -116,7 +116,7 @@ export const PROJECTS = [
   },
   {
     id: 'cyber-hunt',
-    index: '03 / 04',
+    index: '03 / 03',
     category: 'COMPETITION INFRA',
     headerAccent: 'cyan',
     title: 'Cyber Hunt — Online Treasure Hunt Platform',
@@ -172,55 +172,6 @@ export const PROJECTS = [
         label: 'Request Post-Mortem Notes',
         href: 'mailto:sagarkharbikar25@gmail.com?subject=Cyber%20Hunt%20Architecture%20Notes',
         external: false,
-        primary: true,
-      },
-    ],
-  },
-  {
-    id: 'saar-ai',
-    index: '04 / 04',
-    category: 'LOCAL VOICE AI',
-    headerAccent: 'ice',
-    title: 'SAAR — AI Personal Assistant',
-    award: 'Ongoing (Jan 2026 – Present)',
-    statusLabel: 'STATUS: IN DEVELOPMENT',
-    awardTone: 'gold',
-    image: '/assets/projects/saar.webp',
-    imageWidth: 1280,
-    imageHeight: 762,
-    imageAlt: 'SAAR AI Voice Assistant Architecture & UI',
-    outcomeLead:
-      'Status: In Development — Local Whisper + Piper TTS pipeline (<1.4s TTFB) with Twilio HMAC verification, caller allowlists, and strict command whitelists.',
-    summary:
-      'Voice-controlled personal assistant for hands-free system control and remote commands.',
-    problem:
-      'Voice assistants typically suffer high roundtrip cloud latency and introduce privacy risks when executing privileged system commands.',
-    specs: [
-      {
-        label: 'Local Speech Pipeline',
-        detail:
-          'Speech-to-text, wake-word detection, and text-to-speech with <1.4s TTFB on local hardware.',
-      },
-      {
-        label: 'Remote Command Dispatch',
-        detail:
-          'Modular FastAPI backend integrating Twilio webhooks for remote system task execution.',
-      },
-      {
-        label: 'OpenCV Presence Detection',
-        detail:
-          'Real-time camera feed monitor that triggers automatic system lock upon user absence.',
-      },
-    ],
-    decisionTitle: 'Key Architecture Decision (Security)',
-    decisionText:
-      'Remote command execution is strictly bounded: validates Twilio webhook HMAC signatures, checks incoming numbers against an explicit allowlist, restricts commands to a predefined whitelist matrix, and logs all execution attempts with immutable timestamps.',
-    stack: ['Python', 'FastAPI', 'OpenCV', 'Twilio', 'Local Whisper', 'Piper TTS'],
-    links: [
-      {
-        label: 'Source Code',
-        href: 'https://github.com/sagarkharbikar25/saar-voice-assistant',
-        external: true,
         primary: true,
       },
     ],
