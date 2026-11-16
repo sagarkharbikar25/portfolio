@@ -53,21 +53,22 @@ export default function HeroNeoSection() {
         {/* Majestic Centered Headline: BACKEND DEVELOPER (Centered, Clean & Classic) */}
         <div className="my-auto py-10 sm:py-16 text-center">
           
-          {/* Centered Circular Portrait Avatar */}
+          {/* Centered Professional Circular Portrait Avatar */}
           <motion.div
             initial={shouldReduceMotion ? false : { scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.6, ease: EASE_OUT }}
-            className="mx-auto mb-3 sm:mb-5 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full ring-4 ring-white/80 shadow-[0_16px_40px_rgba(0,0,0,0.6)] overflow-hidden bg-gradient-to-tr from-emerald-600 via-nature-lime to-amber-400 p-1 flex items-center justify-center cursor-default"
+            className="group relative mx-auto mb-3 sm:mb-5 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full ring-4 ring-white/90 shadow-[0_16px_40px_rgba(0,0,0,0.6)] overflow-hidden bg-slate-900 cursor-default"
           >
-            <div className="w-full h-full rounded-full bg-neutral-900/90 backdrop-blur-md flex flex-col items-center justify-center text-center p-1">
-              <span className="font-display font-black text-xl sm:text-2xl text-nature-lime tracking-tight">
-                SK
-              </span>
-              <span className="text-[10px] font-mono uppercase text-neutral-300 tracking-tighter">
-                Nagpur, IN
-              </span>
-            </div>
+            <img
+              src={PROFILE.avatar}
+              alt="Sagar Kharbikar — Backend Developer"
+              width={256}
+              height={256}
+              className="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
+            />
+            {/* Subtle gloss border overlay */}
+            <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-white/30 pointer-events-none" />
           </motion.div>
 
           {/* Top Line: BACKEND (Centered) */}

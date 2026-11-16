@@ -1,6 +1,8 @@
 export const PROFILE = {
   name: 'Sagar Kharbikar',
   shortMark: 'SK',
+  avatar: '/assets/avatar.webp',
+  avatarFull: '/assets/avatar-full.webp',
   domain: 'sagardev.me',
   role: 'Backend Developer & SDE · Full-Stack Capable',
   tagline: 'Computer Science undergraduate engineering deterministic backends and full-stack systems.',

@@ -85,6 +85,9 @@ export default function BentoMatrixSection() {
 
               {/* Leadership Badges */}
               <div className="flex items-center -space-x-3">
+                <div className="w-11 h-11 rounded-full overflow-hidden ring-2 ring-white shadow-md" title="Sagar Kharbikar">
+                  <img src={PROFILE.avatar} alt="Sagar Kharbikar" className="w-full h-full object-cover" />
+                </div>
                 <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-emerald-600 to-teal-400 ring-2 ring-white flex items-center justify-center font-bold text-xs text-white shadow-md" title="Hack With India">
                   HWI
                 </div>
