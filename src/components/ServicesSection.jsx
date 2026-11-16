@@ -5,27 +5,27 @@ import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
 const SERVICES = [
   {
     num: '01',
-    title: 'UI/UX & Design Engineering',
-    tagline: 'High-craft responsive interfaces that convert visitors into active users.',
-    features: ['Design Systems', 'Micro-Interactions', 'Performance & CWV Optimization'],
+    title: 'Backend Systems & API Architecture',
+    tagline: 'Deterministic state machines, role-based access control, and low-latency REST APIs.',
+    features: ['Approval State Machines', 'RBAC & Audit Trails', 'Schema Validation'],
   },
   {
     num: '02',
-    title: 'AI Product & LLM Pipelines',
-    tagline: 'Deterministic agent orchestration, local LLMs, and high-speed voice workflows.',
-    features: ['FastAPI / Python Agents', 'Prompt Hardening', 'Zero-Latency Streaming'],
+    title: 'Database Scaling & Concurrency',
+    tagline: 'Transactional consistency, PgBouncer pooling, and in-memory Redis caching.',
+    features: ['PostgreSQL & Indexes', 'Redis Queues & Locks', 'Sub-50ms Latency'],
   },
   {
     num: '03',
-    title: 'SaaS Systems & Scaled Databases',
-    tagline: 'Multi-tenant architecture, role-based access control, and transaction safety.',
-    features: ['PostgreSQL & PgBouncer', 'Redis Caching & Queues', 'Audit State Machines'],
+    title: 'AI Pipelines & Local LLMs',
+    tagline: 'Deterministic agent orchestration, local speech-to-speech, and streaming workflows.',
+    features: ['FastAPI / Python Agents', 'Whisper & Speech Pipelines', 'Zero-Leak Memory'],
   },
   {
     num: '04',
-    title: 'Full-Stack Development',
-    tagline: 'End-to-end web & mobile applications engineered for high concurrency.',
-    features: ['React & Next.js', 'React Native & Mobile', 'Docker & CI/CD Delivery'],
+    title: 'Full-Stack Web & Mobile Apps',
+    tagline: 'Production-ready web & mobile frontends that integrate seamlessly with backend APIs.',
+    features: ['Modern React & Vite', 'React Native & Mobile', 'Dockerized Deployments'],
   },
 ];
 

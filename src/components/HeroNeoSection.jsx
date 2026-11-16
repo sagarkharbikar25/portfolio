@@ -81,26 +81,26 @@ export default function HeroNeoSection() {
             className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/80 backdrop-blur-md border border-slate-300/80 text-xs font-semibold text-slate-800 shadow-sm"
           >
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-            <span>Available for SDE &amp; Full-Stack Roles</span>
+            <span>Available for Backend, SDE &amp; Full-Stack Roles</span>
           </motion.div>
 
           <div className="hidden sm:flex items-center gap-2 text-xs text-slate-600 font-mono font-medium">
-            <Sparkles className="w-3.5 h-3.5 text-nature-lime" />
-            <span>Design to convert · Built to scale</span>
+            <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+            <span>Backend Specialist · Full-Stack Capable</span>
           </div>
         </div>
 
-        {/* Massive Condensed Split Headline in Deep Slate (Exact Reference Match) */}
+        {/* Massive Condensed Split Headline: BACKEND DEVELOPER (Primary Focus) */}
         <div className="my-auto py-8 sm:py-12">
-          {/* Top Line: FULL STACK + Overlapping Portrait Avatar */}
+          {/* Top Line: BACKEND + Overlapping Portrait Avatar */}
           <div className="relative flex justify-end items-center">
             <motion.h1
               initial={shouldReduceMotion ? false : { opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: EASE_OUT }}
-              className="font-condensed text-7xl sm:text-9xl md:text-[10rem] lg:text-[13rem] xl:text-[15rem] leading-[0.82] tracking-tight uppercase text-slate-900 select-none"
+              className="font-condensed text-7xl sm:text-9xl md:text-[11rem] lg:text-[14rem] xl:text-[16rem] leading-[0.82] tracking-tight uppercase text-slate-900 select-none"
             >
-              FULL STACK
+              BACKEND
             </motion.h1>
 
             {/* Overlapping circular headshot badge */}
@@ -127,7 +127,7 @@ export default function HeroNeoSection() {
               initial={shouldReduceMotion ? false : { opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15, duration: 0.8, ease: EASE_OUT }}
-              className="font-condensed text-7xl sm:text-9xl md:text-[10rem] lg:text-[13rem] xl:text-[15rem] leading-[0.82] tracking-tight uppercase text-slate-900 select-none"
+              className="font-condensed text-7xl sm:text-9xl md:text-[11rem] lg:text-[14rem] xl:text-[16rem] leading-[0.82] tracking-tight uppercase text-slate-900 select-none"
             >
               DEVELOPER
             </motion.h2>

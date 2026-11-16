@@ -4,18 +4,11 @@ import { Cpu, Terminal, Sparkles, Layers, Database, Code, Globe, Zap } from 'luc
 
 const SKILL_PILLS = [
   {
-    name: 'Python & AI Workflows',
-    category: 'Backend & ML',
-    color: 'bg-amber-500/15 text-amber-900 border-amber-400/50 shadow-sm',
-    dot: 'bg-amber-500',
-    icon: Terminal,
-  },
-  {
-    name: 'Responsive UI Design',
-    category: 'Design Engineering',
-    color: 'bg-lime-500/15 text-lime-950 border-lime-400/50 shadow-sm',
-    dot: 'bg-lime-500',
-    icon: Globe,
+    name: 'PostgreSQL & Redis Scaling',
+    category: 'Data Architecture',
+    color: 'bg-sky-500/15 text-sky-950 border-sky-400/50 shadow-sm',
+    dot: 'bg-sky-500',
+    icon: Database,
   },
   {
     name: 'Node.js & Express APIs',
@@ -25,11 +18,11 @@ const SKILL_PILLS = [
     icon: Cpu,
   },
   {
-    name: 'PostgreSQL & Redis Scaling',
-    category: 'Data Architecture',
-    color: 'bg-sky-500/15 text-sky-950 border-sky-400/50 shadow-sm',
-    dot: 'bg-sky-500',
-    icon: Database,
+    name: 'Python & FastAPI Workflows',
+    category: 'Backend & ML',
+    color: 'bg-amber-500/15 text-amber-900 border-amber-400/50 shadow-sm',
+    dot: 'bg-amber-500',
+    icon: Terminal,
   },
   {
     name: 'Deterministic State Machines',
@@ -39,18 +32,25 @@ const SKILL_PILLS = [
     icon: Layers,
   },
   {
-    name: 'Modern React & Vite',
+    name: 'Docker & Microservices',
+    category: 'DevOps & Cloud',
+    color: 'bg-slate-900 text-white border-slate-700 shadow-sm',
+    dot: 'bg-white',
+    icon: Code,
+  },
+  {
+    name: 'Modern React & Full-Stack',
     category: 'Frontend Performance',
     color: 'bg-cyan-500/15 text-cyan-950 border-cyan-400/50 shadow-sm',
     dot: 'bg-cyan-500',
     icon: Zap,
   },
   {
-    name: 'Docker & Microservices',
-    category: 'DevOps & Cloud',
-    color: 'bg-slate-900 text-white border-slate-700 shadow-sm',
-    dot: 'bg-white',
-    icon: Code,
+    name: 'Responsive UI Design',
+    category: 'Design Engineering',
+    color: 'bg-lime-500/15 text-lime-950 border-lime-400/50 shadow-sm',
+    dot: 'bg-lime-500',
+    icon: Globe,
   },
 ];
 

@@ -78,7 +78,7 @@ export default function ContactSection() {
               <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200/70 text-emerald-900 flex items-center gap-3">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping" />
                 <span className="text-xs font-bold tracking-tight">
-                  Status: Available for SDE, Backend &amp; Full-Stack Opportunities
+                  Status: Available for Backend Engineering, SDE &amp; Full-Stack Opportunities
                 </span>
               </div>
             </div>
