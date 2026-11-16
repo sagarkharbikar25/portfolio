@@ -15,33 +15,33 @@ export default function App() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <div className="min-h-screen bg-[#07070a] text-white selection:bg-nature-lime selection:text-neutral-950 font-sans">
+      <div className="min-h-screen bg-[#f8fafc] text-slate-900 selection:bg-nature-lime selection:text-neutral-950 font-sans">
         
         {/* Floating Frosted Capsule Navigation */}
         <CapsuleNav />
 
-        {/* Main Sections */}
+        {/* Main Content Flow */}
         <main id="main-content">
-          {/* 01 // HERO: Neo-Nature Rolling Landscape & Split Condensed Typography */}
+          {/* 01 // HERO: Neo-Nature Rolling Green Hills & Light Twilight Sky */}
           <HeroNeoSection />
 
-          {/* 02 // ABOUT & BENTO MATRIX: Metrics, 3D Tactile Sculpture & Liquid Chrome Skill Ribbon */}
+          {/* 02 // ABOUT & BENTO MATRIX: Light Bento, 3D Coral Sculpture & Chrome Ribbon */}
           <BentoMatrixSection />
 
-          {/* 03 // SERVICES: Wildflower Hill Landscape & Interactive Row Accordions */}
+          {/* 03 // SERVICES: Cerulean Sky & Diagonal Wildflower Landscape with 01-04 Accordions */}
           <ServicesSection />
 
-          {/* 04 // PROJECTS: Asymmetric Staggered 2-Column Grid */}
+          {/* 04 // PROJECTS: Asymmetric Staggered 2-Column Grid on Light Ground */}
           <ProjectsNeoSection onSelectProject={setSelectedProject} />
 
-          {/* 05 // INTERACTIVE CANVAS CTA: Pitch-Black Mouse-Tracking 2D Dot Matrix */}
+          {/* 05 // INTERACTIVE CANVAS CTA: Pitch-Black 2D Mouse-Proximity Dot Matrix Contrast Zone */}
           <InteractiveCanvasCTA />
 
-          {/* 06 // CONTACT: Minimalist Underline Inputs & Studio Coordinates */}
+          {/* 06 // CONTACT: Direct Contact Hub with Instant 1-Click Mail & Quick Channels (No Form/No Resend API) */}
           <ContactSection />
         </main>
 
-        {/* 07 // FOOTER: Standalone Mint Green Card Enclosure & Bleed Watermark */}
+        {/* 07 // FOOTER: Standalone Pale Mint Green Card Enclosure with Giant Bleed Watermark */}
         <FooterNeo />
 
         {/* Project Inspection Modal (Native Top-Layer <dialog>) */}

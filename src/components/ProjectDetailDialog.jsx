@@ -126,15 +126,15 @@ export default function ProjectDetailDialog({ project, onSelectProject, onClose 
       {project && (
         <div
           ref={panelRef}
-          className="w-full max-h-[90vh] overflow-y-auto overscroll-contain bg-[#0C0E16] border border-white/15 rounded-xl shadow-[0_32px_90px_rgba(0,0,0,0.85)] text-hud-text"
+          className="w-full max-h-[90vh] overflow-y-auto overscroll-contain bg-white border border-slate-200 rounded-2xl shadow-[0_32px_90px_rgba(15,23,42,0.25)] text-slate-900"
         >
           {/* Sticky Modal Header */}
-          <div className="sticky top-0 z-10 px-5 sm:px-7 py-3.5 bg-[#0C0E16]/95 backdrop-blur-md border-b border-white/[0.08] flex items-center justify-between gap-3">
+          <div className="sticky top-0 z-10 px-5 sm:px-7 py-3.5 bg-white/95 backdrop-blur-md border-b border-slate-200 flex items-center justify-between gap-3">
             <div className="flex flex-wrap items-center gap-2 font-mono text-[11px] uppercase tracking-wider min-w-0">
-              <span className="text-cyan-soft font-bold">{project.deckIndex || project.index}</span>
-              <span className="text-white/25">&middot;</span>
-              <span className="text-hud-muted truncate">{project.category}</span>
-              <span className="px-2 py-0.5 border border-gold/40 bg-gold/10 text-gold text-[10px]">
+              <span className="text-emerald-600 font-bold">{project.deckIndex || project.index}</span>
+              <span className="text-slate-300">&middot;</span>
+              <span className="text-slate-600 font-semibold truncate">{project.category}</span>
+              <span className="px-2 py-0.5 border border-amber-300 bg-amber-50 text-amber-800 text-[10px] font-bold rounded-full">
                 {project.statusLabel || project.award}
               </span>
             </div>
@@ -146,7 +146,7 @@ export default function ProjectDetailDialog({ project, onSelectProject, onClose 
                     type="button"
                     onClick={() => stepProject(-1)}
                     aria-label="Previous project"
-                    className="p-1.5 border border-white/15 text-hud-muted hover:text-hud-text hover:border-white/35 cursor-pointer"
+                    className="p-1.5 border border-slate-200 rounded-lg text-slate-600 hover:text-slate-950 hover:bg-slate-100 cursor-pointer"
                   >
                     <ChevronLeft size={14} />
                   </button>
@@ -154,7 +154,7 @@ export default function ProjectDetailDialog({ project, onSelectProject, onClose 
                     type="button"
                     onClick={() => stepProject(1)}
                     aria-label="Next project"
-                    className="p-1.5 border border-white/15 text-hud-muted hover:text-hud-text hover:border-white/35 cursor-pointer"
+                    className="p-1.5 border border-slate-200 rounded-lg text-slate-600 hover:text-slate-950 hover:bg-slate-100 cursor-pointer"
                   >
                     <ChevronRight size={14} />
                   </button>
@@ -165,7 +165,7 @@ export default function ProjectDetailDialog({ project, onSelectProject, onClose 
                 type="button"
                 onClick={closeDialogWithTransition}
                 aria-label="Close project details dialog"
-                className="inline-flex items-center gap-1.5 px-2.5 py-1 border border-white/15 text-hud-muted hover:text-hud-text hover:border-cyan-soft font-mono text-[11px] uppercase tracking-wider cursor-pointer transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1 border border-slate-200 rounded-full bg-slate-100 text-slate-700 hover:text-slate-950 hover:bg-slate-200 font-mono text-[11px] uppercase tracking-wider cursor-pointer transition-colors"
               >
                 <span>ESC</span>
                 <X size={14} aria-hidden="true" />
@@ -174,7 +174,7 @@ export default function ProjectDetailDialog({ project, onSelectProject, onClose 
           </div>
 
           <div className="p-5 sm:p-8 space-y-6">
-            <div className="aspect-[16/9] w-full overflow-hidden rounded-lg border border-white/10 bg-surface-card">
+            <div className="aspect-[16/9] w-full overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
               <img
                 src={project.image}
                 alt={project.imageAlt}
@@ -187,35 +187,35 @@ export default function ProjectDetailDialog({ project, onSelectProject, onClose 
             <div>
               <h2
                 id={titleId}
-                className="font-display text-2xl sm:text-3xl font-bold text-hud-text mb-3"
+                className="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3"
               >
                 {project.title}
               </h2>
 
               {project.outcomeLead && (
-                <p className="text-sm sm:text-base text-hud-text/90 border-l-2 border-cyan-soft pl-3.5 mb-4 leading-relaxed">
+                <p className="text-sm sm:text-base text-slate-800 border-l-2 border-emerald-500 pl-3.5 mb-4 leading-relaxed font-medium">
                   {project.outcomeLead}
                 </p>
               )}
 
               {/* Process Breakdown: Problem -> Architecture Approach */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="p-4 bg-white/[0.02] border border-white/[0.08] rounded-lg">
-                  <div className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-hud-dim mb-1.5">
-                    <Layers size={12} className="text-cyan-soft" aria-hidden="true" />
+                <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                  <div className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-1.5">
+                    <Layers size={12} className="text-emerald-600" aria-hidden="true" />
                     <span>01 // Problem Framing</span>
                   </div>
-                  <p className="text-xs sm:text-sm text-hud-muted leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                     {project.problem}
                   </p>
                 </div>
 
-                <div className="p-4 bg-white/[0.02] border border-white/[0.08] rounded-lg">
-                  <div className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-hud-dim mb-1.5">
-                    <ShieldCheck size={12} className="text-hud-emerald" aria-hidden="true" />
+                <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                  <div className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-1.5">
+                    <ShieldCheck size={12} className="text-emerald-600" aria-hidden="true" />
                     <span>02 // {project.decisionTitle}</span>
                   </div>
-                  <p className="text-xs sm:text-sm text-hud-muted leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                     {project.decisionText}
                   </p>
                 </div>

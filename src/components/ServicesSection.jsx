@@ -37,7 +37,7 @@ export default function ServicesSection() {
     <section
       id="services"
       aria-label="Services and Solutions"
-      className="relative py-28 sm:py-36 bg-gradient-to-b from-[#035b8c] via-[#0284c7] to-[#043d5d] text-white overflow-hidden"
+      className="relative py-28 sm:py-36 bg-gradient-to-b from-[#0284c7] via-[#0369a1] to-[#0284c7] text-white overflow-hidden"
     >
       {/* Decorative Diagonal Green Wildflower Hill Backdrop (Matching Screenshot 3) */}
       <div
@@ -54,13 +54,13 @@ export default function ServicesSection() {
           {/* Diagonal wildflower hill curve */}
           <path
             d="M 0,220 C 340,160 720,310 1120,180 C 1280,130 1380,150 1440,160 L 1440,500 L 0,500 Z"
-            fill="url(#hill-flower-grad)"
+            fill="url(#hill-flower-grad-light)"
           />
           <defs>
-            <linearGradient id="hill-flower-grad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#15803D" />
-              <stop offset="45%" stopColor="#166534" />
-              <stop offset="100%" stopColor="#052E16" />
+            <linearGradient id="hill-flower-grad-light" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#16a34a" />
+              <stop offset="45%" stopColor="#15803d" />
+              <stop offset="100%" stopColor="#14532d" />
             </linearGradient>
           </defs>
           {/* Scattered wildflower specks (Yellow, Coral, White, Lavender) */}
@@ -87,7 +87,7 @@ export default function ServicesSection() {
             initial={shouldReduceMotion ? false : { opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-xs font-mono text-sky-100 uppercase tracking-widest mb-4"
+            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-xs font-mono text-white uppercase tracking-widest mb-4 font-bold"
           >
             <span>SERVICES &amp; CAPABILITIES</span>
           </motion.div>
@@ -96,18 +96,18 @@ export default function ServicesSection() {
             initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-4"
+            className="text-4xl sm:text-6xl font-black tracking-tight text-white mb-4"
           >
             Your Needs, <span className="font-condensed font-normal uppercase">Our Expertise</span>
           </motion.h2>
 
-          <p className="text-base sm:text-lg text-sky-100/90 leading-relaxed text-pretty">
+          <p className="text-base sm:text-lg text-sky-100/90 leading-relaxed text-pretty font-medium">
             Architected for reliability. From interface fidelity to multi-tier state machines, every layer is built with high standards.
           </p>
         </div>
 
         {/* Interactive Accordion Rows (Matching Screenshot 3) */}
-        <div className="border-t border-white/25 divide-y divide-white/20">
+        <div className="border-t border-white/30 divide-y divide-white/25">
           {SERVICES.map((srv, idx) => {
             const isHovered = hoveredIdx === idx;
             return (
@@ -119,7 +119,7 @@ export default function ServicesSection() {
                 transition={{ delay: idx * 0.08, duration: 0.5 }}
                 onMouseEnter={() => setHoveredIdx(idx)}
                 onMouseLeave={() => setHoveredIdx(null)}
-                className="group relative py-7 sm:py-9 px-4 sm:px-6 rounded-3xl transition-all duration-300 hover:bg-neutral-950/40 hover:backdrop-blur-md cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-6"
+                className="group relative py-7 sm:py-9 px-4 sm:px-6 rounded-3xl transition-all duration-300 hover:bg-white/15 hover:backdrop-blur-md cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-6"
               >
                 {/* Number & Title */}
                 <div className="flex items-baseline gap-6 sm:gap-10">
@@ -127,10 +127,10 @@ export default function ServicesSection() {
                     {srv.num}
                   </span>
                   <div>
-                    <h3 className="text-2xl sm:text-4xl font-bold tracking-tight text-white group-hover:text-nature-lime transition-colors">
+                    <h3 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white group-hover:text-nature-lime transition-colors">
                       {srv.title}
                     </h3>
-                    <p className="text-sm text-sky-100/80 mt-1 max-w-xl group-hover:text-neutral-200 transition-colors">
+                    <p className="text-sm text-sky-100/90 mt-1 max-w-xl group-hover:text-white transition-colors">
                       {srv.tagline}
                     </p>
                   </div>
@@ -138,7 +138,7 @@ export default function ServicesSection() {
 
                 {/* Features & Action Button */}
                 <div className="flex items-center justify-between md:justify-end gap-6 sm:gap-8">
-                  <div className="hidden lg:flex items-center gap-4 text-xs font-mono text-sky-200/90">
+                  <div className="hidden lg:flex items-center gap-4 text-xs font-mono font-bold text-sky-100">
                     {srv.features.map((feat) => (
                       <span key={feat} className="flex items-center gap-1.5">
                         <CheckCircle2 className="w-3.5 h-3.5 text-nature-lime" />
@@ -148,7 +148,7 @@ export default function ServicesSection() {
                   </div>
 
                   {/* Circular Arrow Button (Rotates 45deg on hover) */}
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/20 group-hover:bg-nature-lime backdrop-blur-md border border-white/30 group-hover:border-nature-lime flex items-center justify-center transition-all duration-300 shadow-md group-hover:shadow-[0_4px_20px_rgba(132,204,22,0.4)]">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/25 group-hover:bg-nature-lime backdrop-blur-md border border-white/40 group-hover:border-nature-lime flex items-center justify-center transition-all duration-300 shadow-md group-hover:shadow-[0_4px_20px_rgba(132,204,22,0.4)]">
                     <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:text-neutral-950 transition-all duration-300 group-hover:rotate-45" />
                   </div>
                 </div>

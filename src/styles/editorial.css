@@ -21,19 +21,19 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
-  --bg-dark: #070709;
-  --bg-surface: #0f1017;
-  --text-main: #f3f4f6;
-  --text-muted: #9ca3af;
-  --brand-lime: #bef264;
-  --brand-green: #22c55e;
-  --brand-sky: #38bdf8;
+  color-scheme: light;
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --brand-lime: #84cc16;
+  --brand-green: #15803d;
+  --brand-sky: #0284c7;
   --brand-mint: #a7f3d0;
 }
 
 html {
-  background-color: var(--bg-dark);
+  background-color: var(--bg-main);
   color: var(--text-main);
   scroll-behavior: smooth;
   scroll-padding-top: 96px;
@@ -48,7 +48,7 @@ html {
 
 body {
   font-family: 'Plus Jakarta Sans', 'Space Grotesk', system-ui, sans-serif;
-  background-color: var(--bg-dark);
+  background-color: var(--bg-main);
   color: var(--text-main);
   overflow-x: clip;
   min-height: 100vh;
@@ -61,39 +61,28 @@ body {
   outline-offset: 3px;
 }
 
-/* Tactile Frosted Glass Utilities */
+/* Light Theme Frosted Glass & Surface Utilities */
 .glass-capsule {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-}
-
-.glass-card {
-  background: rgba(18, 19, 28, 0.72);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
 }
 
 .glass-card-light {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
 }
 
-/* Chrome Ribbon Sheen */
+/* Liquid Chrome Ribbon Sheen for Light Theme */
 .chrome-ribbon {
-  background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(200,210,230,0.15) 30%, rgba(255,255,255,0.6) 50%, rgba(160,180,210,0.2) 75%, rgba(255,255,255,0.3) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.8);
-}
-
-/* Native Accessible Form Styles */
-input:user-invalid,
-textarea:user-invalid {
-  border-color: #ef4444;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(220, 230, 245, 0.5) 30%, rgba(255, 255, 255, 0.9) 50%, rgba(200, 215, 235, 0.45) 75%, rgba(255, 255, 255, 0.9) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08), inset 0 2px 4px rgba(255, 255, 255, 0.9);
 }
 
 /* Native Top-Layer <dialog> Entry/Exit Animations */
@@ -128,7 +117,7 @@ dialog.editorial-dialog[open]:where(:not([data-closing])) {
 }
 
 dialog.editorial-dialog::backdrop {
-  background-color: rgba(6, 7, 11, 0);
+  background-color: rgba(15, 23, 42, 0);
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
   transition-property: background-color, backdrop-filter, display, overlay;
@@ -138,7 +127,7 @@ dialog.editorial-dialog::backdrop {
 }
 
 dialog.editorial-dialog[open]:where(:not([data-closing]))::backdrop {
-  background-color: rgba(5, 5, 8, 0.8);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background-color: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }

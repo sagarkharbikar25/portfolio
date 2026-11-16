@@ -43,19 +43,19 @@ export default function CapsuleNav() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         aria-label="Primary Navigation"
-        className={`pointer-events-auto flex items-center justify-between gap-3 sm:gap-6 px-3 sm:px-5 py-2 rounded-full transition-all duration-300 ${
+        className={`pointer-events-auto flex items-center justify-between gap-3 sm:gap-6 px-3.5 sm:px-5 py-2 rounded-full transition-all duration-300 ${
           scrolled
-            ? 'bg-neutral-900/80 backdrop-blur-xl border border-white/15 shadow-[0_12px_32px_rgba(0,0,0,0.4)]'
-            : 'bg-white/10 backdrop-blur-md border border-white/20 shadow-[0_8px_24px_rgba(0,0,0,0.2)]'
+            ? 'bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_12px_36px_rgba(15,23,42,0.08)]'
+            : 'bg-white/80 backdrop-blur-md border border-slate-200/80 shadow-[0_8px_24px_rgba(15,23,42,0.05)]'
         }`}
       >
         {/* Brand / Home Anchor */}
         <a
           href="#hero"
-          className="flex items-center gap-2 pl-2 pr-1 text-sm font-bold tracking-tight text-white hover:text-nature-lime transition-colors focus-visible:rounded-full"
+          className="flex items-center gap-2 pl-2 pr-1 text-sm font-bold tracking-tight text-slate-900 hover:text-nature-lime transition-colors focus-visible:rounded-full"
         >
           <span className="w-2.5 h-2.5 rounded-full bg-nature-lime shadow-[0_0_8px_#84CC16]" />
-          <span className="font-display font-bold tracking-wide">SAGAR</span>
+          <span className="font-display font-black tracking-wide">SAGAR</span>
         </a>
 
         {/* Desktop Links */}
@@ -66,16 +66,16 @@ export default function CapsuleNav() {
               <a
                 key={link.label}
                 href={link.href}
-                className={`relative px-3 py-1.5 text-xs uppercase tracking-wider font-medium rounded-full transition-colors ${
+                className={`relative px-3.5 py-1.5 text-xs uppercase tracking-wider font-semibold rounded-full transition-colors ${
                   isActive
-                    ? 'text-white font-semibold'
-                    : 'text-neutral-300 hover:text-white'
+                    ? 'text-slate-950 font-bold'
+                    : 'text-slate-600 hover:text-slate-950'
                 }`}
               >
                 {isActive && (
                   <motion.span
                     layoutId="capsule-active-pill"
-                    className="absolute inset-0 bg-white/15 rounded-full -z-10"
+                    className="absolute inset-0 bg-slate-100 rounded-full -z-10 shadow-sm"
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -99,7 +99,7 @@ export default function CapsuleNav() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-1.5 rounded-full text-white hover:bg-white/10 transition-colors focus-visible:rounded-full"
+            className="md:hidden p-1.5 rounded-full text-slate-700 hover:bg-slate-100 transition-colors focus-visible:rounded-full"
             aria-label="Toggle Navigation Menu"
             aria-expanded={mobileMenuOpen}
           >
@@ -114,14 +114,14 @@ export default function CapsuleNav() {
           initial={{ opacity: 0, scale: 0.95, y: -10 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: -10 }}
-          className="pointer-events-auto absolute top-20 w-[calc(100%-2rem)] max-w-sm bg-neutral-900/95 backdrop-blur-2xl border border-white/15 rounded-3xl p-5 shadow-2xl flex flex-col gap-3 md:hidden z-50"
+          className="pointer-events-auto absolute top-20 w-[calc(100%-2rem)] max-w-sm bg-white/95 backdrop-blur-2xl border border-slate-200 rounded-3xl p-5 shadow-2xl flex flex-col gap-3 md:hidden z-50 text-slate-900"
         >
           {NAV_LINKS.map((link) => (
             <a
               key={link.label}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="px-4 py-2.5 rounded-xl text-sm font-medium text-neutral-200 hover:text-white hover:bg-white/10 transition-colors"
+              className="px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:text-slate-950 hover:bg-slate-100 transition-colors"
             >
               {link.label}
             </a>

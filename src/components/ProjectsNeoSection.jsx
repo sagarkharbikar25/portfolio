@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowUpRight, ExternalLink, Code2, ShieldAlert, Cpu, Sparkles } from 'lucide-react';
+import { ArrowUpRight, Sparkles } from 'lucide-react';
 import { PROJECTS } from '../data/projects';
 
 const EASE_OUT = [0.22, 1, 0.36, 1];
@@ -12,7 +12,7 @@ export default function ProjectsNeoSection({ onSelectProject }) {
     <section
       id="projects"
       aria-label="Selected Production Projects"
-      className="relative py-28 sm:py-36 bg-[#07070a] text-white overflow-hidden"
+      className="relative py-28 sm:py-36 bg-[#f8fafc] text-slate-900 overflow-hidden border-t border-slate-200/60"
     >
       {/* Background ambient lighting */}
       <div
@@ -21,23 +21,23 @@ export default function ProjectsNeoSection({ onSelectProject }) {
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 left-0 w-[500px] h-[500px] bg-nature-lime/10 rounded-full blur-[140px]"
+        className="pointer-events-none absolute bottom-0 left-0 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[140px]"
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Giant Condensed Headline (Exact Reference Typography) */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 sm:mb-24 pb-8 border-b border-white/10">
+        {/* Giant Condensed Headline (Exact Reference Typography in Deep Slate) */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 sm:mb-24 pb-8 border-b border-slate-200">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-mono text-neutral-300 uppercase tracking-widest mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-200/80 border border-slate-300 text-xs font-mono text-slate-700 uppercase tracking-widest mb-4 font-bold">
               <span>FEATURED WORK</span>
             </div>
-            <h2 className="font-condensed text-7xl sm:text-9xl md:text-[10rem] tracking-tight leading-[0.85] text-white uppercase select-none">
+            <h2 className="font-condensed text-7xl sm:text-9xl md:text-[10rem] tracking-tight leading-[0.85] text-slate-900 uppercase select-none">
               PROJECTS
             </h2>
           </div>
 
-          <p className="text-base sm:text-lg text-neutral-400 max-w-md font-normal leading-relaxed text-pretty">
+          <p className="text-base sm:text-lg text-slate-600 max-w-md font-normal leading-relaxed text-pretty">
             Production systems, deterministic state machines, and scaled backends built to perform under live load.
           </p>
         </div>
@@ -55,10 +55,10 @@ export default function ProjectsNeoSection({ onSelectProject }) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.15, ease: EASE_OUT }}
                 onClick={() => onSelectProject?.(project)}
-                className="group relative rounded-3xl bg-neutral-900/70 border border-white/15 overflow-hidden p-6 sm:p-8 cursor-pointer hover:border-nature-lime/40 transition-all duration-300 hover:shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
+                className="group relative rounded-3xl bg-white border border-slate-200/90 overflow-hidden p-6 sm:p-8 cursor-pointer hover:border-emerald-500/50 transition-all duration-300 shadow-[0_8px_30px_rgba(15,23,42,0.04)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.1)]"
               >
                 {/* Visual Preview / Screenshot Frame */}
-                <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-neutral-950 mb-6 border border-white/10 group-hover:border-white/20 transition-all">
+                <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-slate-100 mb-6 border border-slate-200 group-hover:border-slate-300 transition-all">
                   <img
                     src={project.image}
                     alt={project.imageAlt || project.title}
@@ -68,14 +68,14 @@ export default function ProjectsNeoSection({ onSelectProject }) {
                   
                   {/* Subtle corner badge */}
                   {project.award && (
-                    <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-neutral-950/80 backdrop-blur-md border border-amber-400/40 text-[11px] font-bold text-amber-300 flex items-center gap-1.5 shadow-lg">
+                    <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-900/90 backdrop-blur-md border border-amber-400/50 text-[11px] font-bold text-amber-300 flex items-center gap-1.5 shadow-lg">
                       <Sparkles className="w-3.5 h-3.5 text-amber-400" />
                       <span>{project.award}</span>
                     </div>
                   )}
 
                   {/* Circular Hover Arrow Action */}
-                  <div className="absolute bottom-3 right-3 w-11 h-11 rounded-full bg-neutral-950/80 backdrop-blur-md border border-white/25 group-hover:bg-nature-lime group-hover:border-nature-lime flex items-center justify-center transition-all duration-300 shadow-lg">
+                  <div className="absolute bottom-3 right-3 w-11 h-11 rounded-full bg-slate-900/80 group-hover:bg-nature-lime backdrop-blur-md border border-white/20 flex items-center justify-center transition-all duration-300 shadow-lg">
                     <ArrowUpRight className="w-5 h-5 text-white group-hover:text-neutral-950 group-hover:rotate-45 transition-all duration-300" />
                   </div>
                 </div>
@@ -85,7 +85,7 @@ export default function ProjectsNeoSection({ onSelectProject }) {
                   {project.stack.slice(0, 3).map((tag) => (
                     <span
                       key={tag}
-                      className="px-2.5 py-1 rounded-full bg-white/10 text-[11px] font-mono uppercase tracking-wider text-neutral-300 border border-white/10"
+                      className="px-2.5 py-1 rounded-full bg-slate-100 text-[11px] font-mono uppercase tracking-wider text-slate-700 border border-slate-200 font-semibold"
                     >
                       {tag}
                     </span>
@@ -93,10 +93,10 @@ export default function ProjectsNeoSection({ onSelectProject }) {
                 </div>
 
                 {/* Project Title & Summary */}
-                <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white group-hover:text-nature-lime transition-colors mb-2">
+                <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 group-hover:text-emerald-600 transition-colors mb-2">
                   {project.title}
                 </h3>
-                <p className="text-sm text-neutral-400 leading-relaxed line-clamp-2">
+                <p className="text-sm text-slate-600 leading-relaxed line-clamp-2">
                   {project.outcomeLead || project.summary}
                 </p>
               </motion.article>
@@ -113,10 +113,10 @@ export default function ProjectsNeoSection({ onSelectProject }) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.15 + idx * 0.15, ease: EASE_OUT }}
                 onClick={() => onSelectProject?.(project)}
-                className="group relative rounded-3xl bg-neutral-900/70 border border-white/15 overflow-hidden p-6 sm:p-8 cursor-pointer hover:border-nature-lime/40 transition-all duration-300 hover:shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
+                className="group relative rounded-3xl bg-white border border-slate-200/90 overflow-hidden p-6 sm:p-8 cursor-pointer hover:border-emerald-500/50 transition-all duration-300 shadow-[0_8px_30px_rgba(15,23,42,0.04)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.1)]"
               >
                 {/* Visual Preview / Code & Mobile Editor Mockup (Matching Screenshot 4) */}
-                <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-gradient-to-br from-[#121324] to-[#0a0a14] mb-6 border border-white/10 group-hover:border-white/20 transition-all flex items-center justify-center">
+                <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-slate-100 mb-6 border border-slate-200 group-hover:border-slate-300 transition-all flex items-center justify-center">
                   <img
                     src={project.image}
                     alt={project.imageAlt || project.title}
@@ -125,12 +125,12 @@ export default function ProjectsNeoSection({ onSelectProject }) {
                   />
 
                   {/* Top Header Mockup Pill */}
-                  <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-neutral-950/80 backdrop-blur-md border border-white/20 text-[10px] font-mono text-neutral-300">
+                  <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-slate-900/90 backdrop-blur-md border border-white/20 text-[10px] font-mono text-slate-200">
                     <span className="text-emerald-400">●</span> {project.category}
                   </div>
 
                   {/* Circular Hover Arrow Action */}
-                  <div className="absolute bottom-3 right-3 w-11 h-11 rounded-full bg-neutral-950/80 backdrop-blur-md border border-white/25 group-hover:bg-nature-lime group-hover:border-nature-lime flex items-center justify-center transition-all duration-300 shadow-lg">
+                  <div className="absolute bottom-3 right-3 w-11 h-11 rounded-full bg-slate-900/80 group-hover:bg-nature-lime backdrop-blur-md border border-white/20 flex items-center justify-center transition-all duration-300 shadow-lg">
                     <ArrowUpRight className="w-5 h-5 text-white group-hover:text-neutral-950 group-hover:rotate-45 transition-all duration-300" />
                   </div>
                 </div>
@@ -140,7 +140,7 @@ export default function ProjectsNeoSection({ onSelectProject }) {
                   {project.stack.slice(0, 3).map((tag) => (
                     <span
                       key={tag}
-                      className="px-2.5 py-1 rounded-full bg-white/10 text-[11px] font-mono uppercase tracking-wider text-neutral-300 border border-white/10"
+                      className="px-2.5 py-1 rounded-full bg-slate-100 text-[11px] font-mono uppercase tracking-wider text-slate-700 border border-slate-200 font-semibold"
                     >
                       {tag}
                     </span>
@@ -148,10 +148,10 @@ export default function ProjectsNeoSection({ onSelectProject }) {
                 </div>
 
                 {/* Project Title & Summary */}
-                <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white group-hover:text-nature-lime transition-colors mb-2">
+                <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 group-hover:text-emerald-600 transition-colors mb-2">
                   {project.title}
                 </h3>
-                <p className="text-sm text-neutral-400 leading-relaxed line-clamp-2">
+                <p className="text-sm text-slate-600 leading-relaxed line-clamp-2">
                   {project.outcomeLead || project.summary}
                 </p>
               </motion.article>
